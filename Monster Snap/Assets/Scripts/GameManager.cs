@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-     
+
+        maxFilm = 50;
     }
 
     // Update is called once per frame
