@@ -57,7 +57,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
 
     }
 
-
+    /*
     //function that creates a new gameobject to show what image we took and destroys it after 3 seconds
     private void ShowNewPhoto(Texture2D texture)
     {
@@ -65,5 +65,5 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
         renderer = newPhoto.GetComponent<Renderer>();// get new photos renderer
         renderer.material.mainTexture = texture; // make the new photo actually have the screenshot
         Destroy(newPhoto, 2f); //destroy photo after one second
-    }
+    }*/
 }
