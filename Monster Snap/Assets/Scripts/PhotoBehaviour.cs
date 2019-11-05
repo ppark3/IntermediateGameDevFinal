@@ -22,6 +22,7 @@ public class PhotoBehaviour : MonoBehaviour
     public void ChoosePhoto()
     {
         GameManager.gm.storedPhotoNums.Add(myPhotoNum);
+        isSelectable = false;
     }
 
 }

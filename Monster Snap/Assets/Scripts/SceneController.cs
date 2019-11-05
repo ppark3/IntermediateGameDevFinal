@@ -22,8 +22,6 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         timer = 0.5f;
-        timerIsOn = true;
-
     }
 
 
@@ -35,11 +33,11 @@ public class SceneController : MonoBehaviour
         //CHEATS
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.O))
             {
                 BackAScene();
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 ForwardAScene();
             }

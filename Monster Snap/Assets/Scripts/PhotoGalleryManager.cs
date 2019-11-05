@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PhotoGalleryManager : MonoBehaviour
 {
-    int currentPage; // each page shows four photos. Depending on the page it'll show different photos
+    public int currentPage; // each page shows four photos. Depending on the page it'll show different photos
 
     public Image[] shownPhotos;
 
@@ -14,7 +14,6 @@ public class PhotoGalleryManager : MonoBehaviour
     void Start()
     {
         GameManager.gm.storedPhotoNums = new List<int>();
-        shownPhotos = GetComponentsInChildren<Image>();
         ShowPhotos();
     }
 
@@ -34,7 +33,7 @@ public class PhotoGalleryManager : MonoBehaviour
             {
                 // i + (currentPage * 4) bc we want to make it easy to show things in fours
                 shownPhotos[i].sprite = TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)]);
-                shownPhotos[i].GetComponent<PhotoBehaviour>().myPhotoNum = i + (currentPage * 4);
+                shownPhotos[i].gameObject.GetComponent<PhotoBehaviour>().myPhotoNum = i + (currentPage * 4);
 
             }
         }
@@ -50,13 +49,21 @@ public class PhotoGalleryManager : MonoBehaviour
     //function used if the player clicks the left arrow for the photos
     public void GoLeft()
     {
-        currentPage++;
+        if (currentPage > 0)
+        {
+            currentPage--;
+            ShowPhotos();
+        }
     }
 
     //function used if the player clicks the right arrow for photos
     public void GoRight()
     {
-        currentPage--;
+        if (currentPage < (GameManager.gm.storedPhotoNums.Count / 4) -1)
+        {
+            currentPage++;
+            ShowPhotos();
+        }
     }
    
 }
