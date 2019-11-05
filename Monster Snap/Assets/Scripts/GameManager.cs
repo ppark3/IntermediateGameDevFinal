@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameManager gm; // the instance of the Game Manager
+
+    public List<Texture2D> storedPhotos; // stores photos after a level ends so it can be scored etc.
+    public int maxFilm;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(gm == null)
+        {
+            gm = this;
+            DontDestroyOnLoad(gm);
+        }
+        else
+        {
+            Destroy(this);
+        }
+     
     }
 
     // Update is called once per frame
