@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScreenshotBehaviour : MonoBehaviour // this script should be attached to a camera according to unity docs
 {
@@ -14,12 +15,16 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     public Vector3 imageSpawnpos; // where is our new photo popping up?
     bool canTakePicture;
 
+    // Updating Textbox-with-number-of-film-left variables
+    public TextMeshProUGUI numberOfFilmLeft;
+
     public Image img;
 
     // Start is called before the first frame update
     void Start()
     {
         screenshots = new List<Texture2D>(); //initializing list
+        numberOfFilmLeft.text = "Film Left: " + (GameManager.gm.maxFilm - GameManager.gm.storedPhotos.Count);
     }
 
     // Update is called once per frame
@@ -34,13 +39,16 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     // " Will be called from camera after regular rendering is done. "
     private void OnPostRender()
     {
-        if (canTakePicture)
+        if (canTakePicture && (GameManager.gm.storedPhotos.Count < GameManager.gm.maxFilm))
         {
             Texture2D newTexture; // here's the new texture we're about to add to our list of screenshots
             newTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false); // getting screenshot by getting screen width/height and colord
             newTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false); // reading all the pictures on the screen to be stored for our screenshot
             newTexture.Apply(); // making sure that texture is UP TO DATE!
             screenshots.Add(newTexture); // adding texture to list of screenshots!
+            GameManager.gm.storedPhotos.Add(newTexture);
+
+            numberOfFilmLeft.text = "Film Left: " + (GameManager.gm.maxFilm - GameManager.gm.storedPhotos.Count);
 
             ShowNewPhotoOnCanvas(newTexture);
            
