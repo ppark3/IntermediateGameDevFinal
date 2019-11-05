@@ -7,14 +7,13 @@ public class PhotoGalleryManager : MonoBehaviour
 {
     int currentPage; // each page shows four photos. Depending on the page it'll show different photos
 
-    public GameObject photoPrefab;
-    public List<Image> shownPhotos;
+    public Image[] shownPhotos;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        shownPhotos = GetComponentsInChildren<Image>();
     }
 
 
@@ -27,22 +26,33 @@ public class PhotoGalleryManager : MonoBehaviour
 
     void ShowPhotos()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < shownPhotos.Length; i++)
         {
-
+            if ((i + (currentPage * 4)) < GameManager.gm.storedPhotos.Count) //making sure we're not going out of bounds
+            {
+                shownPhotos[i].sprite = TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)]);
+                // i + (currentPage * 4) bc we want to make it easy to show things in fours
+            }
         }
+    }
+
+
+    Sprite TurnTextureIntoSprite(Texture2D newTexture)
+    {
+        Sprite s =  Sprite.Create(newTexture, new Rect(0.0f, 0.0f, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        return s;
     }
 
     //function used if the player clicks the left arrow for the photos
     public void GoLeft()
     {
-
+        currentPage++;
     }
 
     //function used if the player clicks the right arrow for photos
     public void GoRight()
     {
-
+        currentPage--;
     }
    
 }

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PhotoBehaviour : MonoBehaviour
 {
+    //TO DO: have criteria for if you can submit your photos to "professor oak" or not lmao
+
+    bool isShowable =  true;
+
     // Start is called before the first frame update
     void Start()
     {
