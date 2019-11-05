@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 540105200}
   - component: {fileID: 540105202}
   - component: {fileID: 540105201}
+  - component: {fileID: 540105203}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -448,6 +449,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &540105203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540105199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5454e7027e34cb398ae84d672c56ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pictureButton: 32
+  screenshots: []
+  imagePrefab: {fileID: 3922145257500955305, guid: 6467c8ce4b1e348d0af29e9ae9562f0e,
+    type: 3}
+  renderer: {fileID: 680714095}
+  imageSpawnpos: {x: 0, y: 0, z: 10}
+  img: {fileID: 1113832914}
 --- !u!1 &586377352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,15 +1343,15 @@ RectTransform:
   m_GameObject: {fileID: 1113832911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.73764, y: 0.73764, z: 0.73764}
   m_Children: []
   m_Father: {fileID: 1074123466}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1400, y: 788}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1113832913
 Animator:
