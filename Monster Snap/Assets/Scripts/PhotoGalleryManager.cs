@@ -59,7 +59,7 @@ public class PhotoGalleryManager : MonoBehaviour
     //function used if the player clicks the right arrow for photos
     public void GoRight()
     {
-        if (currentPage < (GameManager.gm.storedPhotoNums.Count / 4) -1)
+        if ((currentPage * 4) <= GameManager.gm.storedPhotos.Count)
         {
             currentPage++;
             ShowPhotos();
