@@ -52,6 +52,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     private void ShowNewPhotoOnCanvas(Texture2D newTexture)
     {
         //the below line creates a sprite out of the texture we have so it can be shown on a canvas
+        img.gameObject.SetActive(true);
         img.sprite = Sprite.Create(newTexture, new Rect(0.0f, 0.0f, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
         img.GetComponent<Animator>().Play(0); // plays the animation for the image to fade in and out
 
