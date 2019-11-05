@@ -14,6 +14,7 @@ public class PhotoGalleryManager : MonoBehaviour
     void Start()
     {
         shownPhotos = GetComponentsInChildren<Image>();
+        ShowPhotos();
     }
 
 
@@ -30,8 +31,10 @@ public class PhotoGalleryManager : MonoBehaviour
         {
             if ((i + (currentPage * 4)) < GameManager.gm.storedPhotos.Count) //making sure we're not going out of bounds
             {
-                shownPhotos[i].sprite = TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)]);
                 // i + (currentPage * 4) bc we want to make it easy to show things in fours
+                shownPhotos[i].sprite = TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)]);
+                shownPhotos[i].GetComponent<PhotoBehaviour>().myPhotoNum = i + (currentPage * 4);
+
             }
         }
     }
