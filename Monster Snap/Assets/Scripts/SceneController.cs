@@ -24,16 +24,6 @@ public class SceneController : MonoBehaviour
         timer = 0.5f;
         timerIsOn = true;
 
-
-
-        if (sC == null)
-        {
-            sC = this;
-        }
-        else if (sC != this)
-        {
-            Destroy(gameObject);
-        }
     }
 
 
@@ -57,8 +47,6 @@ public class SceneController : MonoBehaviour
             {
                 ResetScene();
             }
-          
-
         }
 
 

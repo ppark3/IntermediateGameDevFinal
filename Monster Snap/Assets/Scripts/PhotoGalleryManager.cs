@@ -13,6 +13,7 @@ public class PhotoGalleryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.gm.storedPhotoNums = new List<int>();
         shownPhotos = GetComponentsInChildren<Image>();
         ShowPhotos();
     }
