@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour // script should be on the game manager so it isn't destroyed/duplicated
 {
-
     public int currentScene;
 
     public static SceneController sC;
@@ -53,13 +52,17 @@ public class SceneController : MonoBehaviour // script should be on the game man
             }
         }
 
-        if(currentScene == 0)
+        if (currentScene == 0)
         {
-            if(Input.anyKeyDown && timerIsOn == false)
+            if (Input.anyKeyDown && timerIsOn == false)
             {
                 //here, we are going to the character select scene after 0.5 seconds and fading to black whilst loading
                 WaitThenLoadWithTransition(1, 0.5f, 0);
             }
+        }
+        if (GetSceneName() == "TutorialScene" && Input.GetKeyDown(KeyCode.J))
+        {
+            WaitThenLoadWithTransition("CourseGameplay", 0.5f, 2);
         }
 
 
@@ -68,21 +71,23 @@ public class SceneController : MonoBehaviour // script should be on the game man
             timer -= Time.deltaTime;
             if (timer <= 0f)
             {
-                if (currentScene != 0)
+                if (!didStoreNum && !didStoreName)
                 {
-                    if(didStoreName)
+                    timerIsOn = false;
+                }
+                else
+                {
+                    if (didStoreName)
                     {
                         LoadScene(storedName);
                     }
-                    if(didStoreNum)
+                    if (didStoreNum)
                     {
                         LoadScene(storedNum);
                     }
                     didStoreNum = false;
                     didStoreName = false;
-                    
                 }
-                timerIsOn = false;
             }
         }
     }
@@ -117,7 +122,6 @@ public class SceneController : MonoBehaviour // script should be on the game man
 
     public void LoadScene(int num)
     {
-
         SceneManager.LoadScene(num);
     }
 
@@ -128,6 +132,7 @@ public class SceneController : MonoBehaviour // script should be on the game man
 
     public void WaitThenLoad(string sName, float time)
     {
+        didStoreName = true;
         timerIsOn = true;
         timer = time;
         storedName = sName;
@@ -135,10 +140,11 @@ public class SceneController : MonoBehaviour // script should be on the game man
 
     public void WaitThenLoadWithTransition(string sName, float time, int whichTransition)
     {
+        didStoreName = true;
         timerIsOn = true;
         timer = time;
         storedName = sName;
-        tc.gameObject.SetActive(true);
+        tc.anim.enabled = true;
         tc.PlayTransiton(whichTransition);
         // Current transitions are
         // 0 fade black, 1 fade white, 2 screen in screen out
@@ -147,6 +153,7 @@ public class SceneController : MonoBehaviour // script should be on the game man
 
     public void WaitThenLoad(int sNum, float time)
     {
+        didStoreNum = true;
         timerIsOn = true;
         timer = time;
         storedNum = sNum;
@@ -154,10 +161,11 @@ public class SceneController : MonoBehaviour // script should be on the game man
 
     public void WaitThenLoadWithTransition(int sNum, float time, int whichTransition)
     {
+        didStoreNum = true;
         timerIsOn = true;
         timer = time;
         storedNum = sNum;
-        tc.gameObject.SetActive(true);
+        tc.anim.enabled = true;
         tc.PlayTransiton(whichTransition);
 
     }
