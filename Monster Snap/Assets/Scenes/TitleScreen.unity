@@ -765,6 +765,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3556981854525337978, guid: 626fc1a8ce2594130882cae3363d708a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395170107176636519, guid: 626fc1a8ce2594130882cae3363d708a,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728438271051791243, guid: 626fc1a8ce2594130882cae3363d708a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626fc1a8ce2594130882cae3363d708a, type: 3}
 --- !u!1 &2077330819 stripped
