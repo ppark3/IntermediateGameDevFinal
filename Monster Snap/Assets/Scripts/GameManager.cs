@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public List<int> storedPhotoNums; // stores the number of each photo we chose
     public int maxFilm;
 
-  
+    public string playerName;
 
     // Start is called before the first frame update
     void Start()

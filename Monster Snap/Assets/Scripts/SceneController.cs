@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+public class SceneController : MonoBehaviour // script should be on the game manager so it isn't destroyed/duplicated
 {
 
-    // to keep track of score and other things as you proceed from level to level
     public int currentScene;
 
     public static SceneController sC;
@@ -21,6 +20,9 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sC = this;
+
+        timerIsOn = true;
         timer = 0.5f;
     }
 
@@ -44,6 +46,14 @@ public class SceneController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ResetScene();
+            }
+        }
+
+        if(currentScene == 0)
+        {
+            if(Input.anyKeyDown && timerIsOn == false)
+            {
+                ForwardAScene();
             }
         }
 
