@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public List<int> storedPhotoNums; // stores the number of each photo we chose
     public int maxFilm;
 
-    public string playerName;
+    public HighScore playerScore; // player's name and score is stored in this class
 
     // Start is called before the first frame update
     void Start()
@@ -36,3 +36,11 @@ public class GameManager : MonoBehaviour
 
 
 }
+
+[System.Serializable]
+public class HighScore
+{
+    public string _name;
+    public int _num;
+}
+

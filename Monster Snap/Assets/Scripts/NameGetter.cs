@@ -20,7 +20,7 @@ public class NameGetter : MonoBehaviour // this script receives the name the use
     {
         if (SceneController.sC.currentScene == 1) // if we are in the naming player scene....
         {
-            GameManager.gm.playerName = _if.text; //take the text that the player inputs and make it the player name
+            GameManager.gm.playerScore._name = _if.text; //take the text that the player inputs and make it the player name
         }
 
         if(Input.GetKeyDown(KeyCode.Return))
@@ -33,7 +33,7 @@ public class NameGetter : MonoBehaviour // this script receives the name the use
     {
         if (SceneController.sC.currentScene == 1) // if we are in the naming player scene....
         {
-            SceneController.sC.ForwardAScene(); // go to the next scene ( cutscene )
+            SceneController.sC.WaitThenLoadWithTransition(2,0.5f,0); // go to the next scene ( cutscene )
         }
     }
 }

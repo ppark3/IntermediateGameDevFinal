@@ -9,17 +9,21 @@ public class SceneController : MonoBehaviour // script should be on the game man
     public int currentScene;
 
     public static SceneController sC;
-
+    TransitionController tc;
 
     public float timer;
     public bool timerIsOn;
+    bool didStoreNum;
+    bool didStoreName;
 
     public string storedName;
+    public int storedNum;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        tc = FindObjectOfType<TransitionController>(); // transition controller should be within the GameManager in the scene
         sC = this;
 
         timerIsOn = true;
@@ -53,7 +57,8 @@ public class SceneController : MonoBehaviour // script should be on the game man
         {
             if(Input.anyKeyDown && timerIsOn == false)
             {
-                ForwardAScene();
+                //here, we are going to the character select scene after 0.5 seconds and fading to black whilst loading
+                WaitThenLoadWithTransition(1, 0.5f, 0);
             }
         }
 
@@ -65,7 +70,17 @@ public class SceneController : MonoBehaviour // script should be on the game man
             {
                 if (currentScene != 0)
                 {
-                    LoadScene(storedName);
+                    if(didStoreName)
+                    {
+                        LoadScene(storedName);
+                    }
+                    if(didStoreNum)
+                    {
+                        LoadScene(storedNum);
+                    }
+                    didStoreNum = false;
+                    didStoreName = false;
+                    
                 }
                 timerIsOn = false;
             }
@@ -108,7 +123,6 @@ public class SceneController : MonoBehaviour // script should be on the game man
 
     public void LoadScene(string sName)
     {
-
         SceneManager.LoadScene(sName);
     }
 
@@ -119,13 +133,33 @@ public class SceneController : MonoBehaviour // script should be on the game man
         storedName = sName;
     }
 
-    public void WaitThenLoad(int num, float time)
+    public void WaitThenLoadWithTransition(string sName, float time, int whichTransition)
     {
-        time -= Time.deltaTime;
-        if (time <= 0f)
-        {
-            LoadScene(num);
-        }
+        timerIsOn = true;
+        timer = time;
+        storedName = sName;
+        tc.gameObject.SetActive(true);
+        tc.PlayTransiton(whichTransition);
+        // Current transitions are
+        // 0 fade black, 1 fade white, 2 screen in screen out
+
+    }
+
+    public void WaitThenLoad(int sNum, float time)
+    {
+        timerIsOn = true;
+        timer = time;
+        storedNum = sNum;
+    }
+
+    public void WaitThenLoadWithTransition(int sNum, float time, int whichTransition)
+    {
+        timerIsOn = true;
+        timer = time;
+        storedNum = sNum;
+        tc.gameObject.SetActive(true);
+        tc.PlayTransiton(whichTransition);
+
     }
 
 }
