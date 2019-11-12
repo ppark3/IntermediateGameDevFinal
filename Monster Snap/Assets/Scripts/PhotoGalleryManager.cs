@@ -31,20 +31,20 @@ public class PhotoGalleryManager : MonoBehaviour
         {
             if ((i + (currentPage * 4)) < GameManager.gm.storedPhotos.Count) //making sure we're not going out of bounds
             {
+                shownPhotos[i].enabled = true;
                 // i + (currentPage * 4) bc we want to make it easy to show things in fours
-                shownPhotos[i].sprite = TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)]);
+                shownPhotos[i].sprite = GameManager.gm.TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)]);
                 shownPhotos[i].gameObject.GetComponent<PhotoBehaviour>().myPhotoNum = i + (currentPage * 4);
 
+            }
+            else
+            {
+                shownPhotos[i].enabled = false;
             }
         }
     }
 
 
-    Sprite TurnTextureIntoSprite(Texture2D newTexture)
-    {
-        Sprite s =  Sprite.Create(newTexture, new Rect(0.0f, 0.0f, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        return s;
-    }
 
     //function used if the player clicks the left arrow for the photos
     public void GoLeft()
