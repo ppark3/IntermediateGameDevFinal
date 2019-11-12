@@ -1,0 +1,20 @@
+{
+    "scores": [
+        {
+            "_name": "brock",
+            "_num": 30
+        },
+        {
+            "_name": "ash",
+            "_num": 20
+        },
+        {
+            "_name": "misty",
+            "_num": 50
+        },
+        {
+            "_name": "oak",
+            "_num": 100
+        }
+    ]
+}

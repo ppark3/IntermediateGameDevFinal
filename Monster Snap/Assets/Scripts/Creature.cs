@@ -17,3 +17,8 @@ public class Creature : ScriptableObject
     }
 
 }
+
+public class BigCreature : Creature
+{
+
+}
