@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
     
     }
 
+    public Sprite TurnTextureIntoSprite(Texture2D newTexture)
+    {
+        Sprite s = Sprite.Create(newTexture, new Rect(0.0f, 0.0f, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        return s;
+    }
 
 }
 
@@ -43,4 +48,7 @@ public class HighScore
     public string _name;
     public int _num;
 }
+
+
+    
 
