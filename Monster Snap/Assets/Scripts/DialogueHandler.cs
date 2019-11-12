@@ -15,7 +15,7 @@ public class DialogueHandler : MonoBehaviour
 
     [Space]
     [TextArea(2,5)] //more space to type lines
-    public string[] myLines;
+    public List<string> myLines;
     public int currentLine;
     public float textSpeed; // the closer to 0, the faster the speed
 
@@ -48,7 +48,7 @@ public class DialogueHandler : MonoBehaviour
                 if (!isTyping) // if no text is typing go to next line OR disable textbox
                 {
                     currentLine += 1;
-                    if (currentLine >= myLines.Length)
+                    if (currentLine >= myLines.Count)
                     {
                         DisableTextBox();
                     }
