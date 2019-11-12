@@ -14,6 +14,22 @@ public class RailManager : MonoBehaviour
     public Transform location7;
     public Transform location8;
     public Transform location9;
+    public Transform location10;
+    public Transform location11;
+    public Transform location12;
+    public Transform location13;
+    public Transform location14;
+    public Transform location15;
+    public Transform location16;
+    public Transform location17;
+    public Transform location18;
+    public Transform location19;
+    public Transform location20;
+    public Transform location21;
+    public Transform location22;
+    public Transform location23;
+    public Transform location24;
+    public Transform location25;
 
     // Start is called before the first frame update
     void Start()
@@ -58,16 +74,77 @@ public class RailManager : MonoBehaviour
         if (other.gameObject.GetInstanceID() == location7.gameObject.GetInstanceID())
         {
             GetComponent<RailMovement>().location = location8;
-            GetComponent<RailMovement>().speed = 10;
+            GetComponent<RailMovement>().speed = 15;
         }
         if (other.gameObject.GetInstanceID() == location8.gameObject.GetInstanceID())
         {
             GetComponent<RailMovement>().location = location9;
-            GetComponent<RailMovement>().speed = 2;
+            GetComponent<RailMovement>().speed = 5f;
         }
         if (other.gameObject.GetInstanceID() == location9.gameObject.GetInstanceID())
         {
-            //GetComponent<RailMovement>().location = location2;
+            GetComponent<RailMovement>().location = location10;
+            GetComponent<RailMovement>().speed = 2.2f;
+        }
+        if (other.gameObject.GetInstanceID() == location10.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location11;
+        }
+        if (other.gameObject.GetInstanceID() == location11.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location12;
+        }
+        if (other.gameObject.GetInstanceID() == location12.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location13;
+        }
+        if (other.gameObject.GetInstanceID() == location13.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location14;
+        }
+        if (other.gameObject.GetInstanceID() == location14.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location15;
+        }
+        if (other.gameObject.GetInstanceID() == location15.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location16;
+        }
+        if (other.gameObject.GetInstanceID() == location16.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location17;
+        }
+        if (other.gameObject.GetInstanceID() == location17.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location18;
+        }
+        if (other.gameObject.GetInstanceID() == location18.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location19;
+        }
+        if (other.gameObject.GetInstanceID() == location19.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location20;
+        }
+        if (other.gameObject.GetInstanceID() == location20.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location21;
+        }
+        if (other.gameObject.GetInstanceID() == location21.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location22;
+        }
+        if (other.gameObject.GetInstanceID() == location22.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location23;
+        }
+        if (other.gameObject.GetInstanceID() == location23.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location24;
+        }
+        if (other.gameObject.GetInstanceID() == location24.gameObject.GetInstanceID())
+        {
+            GetComponent<RailMovement>().location = location25;
         }
     }
 }
