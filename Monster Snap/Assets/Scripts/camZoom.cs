@@ -4,46 +4,35 @@ using UnityEngine;
 
 public class camZoom : MonoBehaviour
 {
-    private GameObject mainCam;
-    private GameObject newCam;
+    private Camera mainCam;
 
     public KeyCode zoomKey;
-    public float zoomDist;
+
+    // max zoom
+    public float zoomFOV;
+    public float normalFOV;
+
+    public float zoomSpeed;
     
     void Start()
     {
-        newCam = GameObject.Find("Camera");
-        mainCam = GameObject.Find("Main Camera");
-        
-        setMainCamActive();
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        mainCam.fieldOfView = normalFOV;
     }
     
     void Update()
     {
-        // cam switch
-        if (Input.GetKeyDown(zoomKey))
-        {
-            setNewCamActive();
-        } else if (Input.GetKeyUp(zoomKey))
-        {
-            setMainCamActive();
-        }
     }
 
     private void FixedUpdate()
     {
-        // zoom ??
-    }
-
-    void setMainCamActive()
-    {
-        mainCam.SetActive(true);
-        newCam.SetActive(false);
-    }
-
-    void setNewCamActive()
-    {
-        mainCam.SetActive(false);
-        newCam.SetActive(true);
+        if (Input.GetKey(zoomKey) && mainCam.fieldOfView > zoomFOV)
+        {
+            // zoom in
+            mainCam.fieldOfView = mainCam.fieldOfView - zoomSpeed;
+        } else if (!Input.GetKey(zoomKey) && mainCam.fieldOfView < normalFOV)
+        {
+            mainCam.fieldOfView = mainCam.fieldOfView + zoomSpeed;
+        }
     }
 }
