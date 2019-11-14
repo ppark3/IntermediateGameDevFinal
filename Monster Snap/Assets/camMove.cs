@@ -20,11 +20,13 @@ public class camMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        Debug.Log(mainCam.transform.localEulerAngles.x);
+        if ((Input.GetKey(KeyCode.W) && mainCam.transform.eulerAngles.x > 290) || (Input.GetKey(KeyCode.W) && mainCam.transform.eulerAngles.x <= 0))
         {
             mainCam.transform.rotation *= Quaternion.AngleAxis(rotateSpeed, Vector3.left);
             // mainCam.transform.RotateAround(mainCam.transform.position, Vector3.left, moveSpeed);
-        } else if (Input.GetKey(KeyCode.S))
+        }
+        else if (Input.GetKey(KeyCode.S))// && mainCam.transform.eulerAngles.x < 20f)
         {
             mainCam.transform.rotation *= Quaternion.AngleAxis(rotateSpeed, Vector3.right);
             // mainCam.transform.RotateAround(mainCam.transform.position, Vector3.right, rotateSpeed);
