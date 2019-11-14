@@ -20,8 +20,6 @@ public class camMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("Rotation: " + mainCam.transform.rotation.x);
-        Debug.Log("EuelerAngles: " + mainCam.transform.eulerAngles.x);
         if (Input.GetKey(KeyCode.W) && ((mainCam.transform.eulerAngles.x > 290) || (mainCam.transform.eulerAngles.x <= 80f)))
         {
             mainCam.transform.rotation *= Quaternion.AngleAxis(rotateSpeed, Vector3.left);
@@ -29,10 +27,6 @@ public class camMove : MonoBehaviour
         else if (Input.GetKey(KeyCode.S) && ((mainCam.transform.eulerAngles.x >= 280) || (mainCam.transform.eulerAngles.x < 70f)))
         {
             mainCam.transform.rotation *= Quaternion.AngleAxis(rotateSpeed, Vector3.right);
-        }
-        if ((mainCam.transform.eulerAngles.x >= 295))
-        {
-            Debug.Log("hi");
         }
 
         if (Input.GetKey(KeyCode.A))
