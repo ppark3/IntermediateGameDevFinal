@@ -10,6 +10,8 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     public KeyCode pictureButton;
     public List<Texture2D> screenshots; // list of textures that will be our screenshots
 
+    public List<MonsterScript> monstersInPhoto; // temporary list that gets updated everytime screenshot is taken
+
     public GameObject imagePrefab; //prefab containg an image popup of ur photo!
     public Renderer renderer; // the renderer of the image showing the new screenshot!
     public Vector3 imageSpawnpos; // where is our new photo popping up?
@@ -43,6 +45,19 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
         {
             Photo newPhoto = new Photo();
             newPhoto.CalculateScore();
+            monstersInPhoto = new List<MonsterScript>();
+            for (int i = 0; i < MonsterManager.monsters.Count; i++)
+            {
+                if (MonsterManager.monsters[i].isinCamera)
+                {
+                    monstersInPhoto.Add(MonsterManager.monsters[i]);
+                    MonsterManager.monsters[i].GetDistanceFromCamera();
+                }
+                else
+                {
+                    MonsterManager.monsters[i]._distance = 0;
+                }
+            }
 
             Texture2D newTexture; // here's the new texture we're about to add to our list of screenshots
             newTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false); // getting screenshot by getting screen width/height and colord
