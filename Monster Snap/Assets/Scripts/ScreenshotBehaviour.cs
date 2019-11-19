@@ -8,7 +8,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
 {
 
     public KeyCode pictureButton;
-    public List<Photo> screenshots; // list of textures that will be our screenshots
+    public List<Photo.PhotoInstance> screenshots; // list of textures that will be our screenshots
 
     public List<MonsterScript> monstersInPhoto; // temporary list that gets updated everytime screenshot is taken
 
@@ -25,7 +25,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     // Start is called before the first frame update
     void Start()
     {
-        screenshots = new List<Photo>(); //initializing list
+        screenshots = new List<Photo.PhotoInstance>(); //initializing list
         numberOfFilmLeft.text = "Film Left: " + (GameManager.gm.maxFilm - GameManager.gm.storedPhotos.Count);
     }
 
@@ -43,15 +43,17 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     {
         if (canTakePicture && (GameManager.gm.storedPhotos.Count < GameManager.gm.maxFilm))
         {
-            Photo newPhoto = new Photo();
-            newPhoto.CalculateScore();
+            Photo.PhotoInstance newPhoto = new Photo.PhotoInstance();
             monstersInPhoto = new List<MonsterScript>();
             for (int i = 0; i < MonsterManager.monsters.Count; i++)
             {
+                MonsterManager.monsters[i].isVisible();
                 if (MonsterManager.monsters[i].isinCamera)
                 {
                     monstersInPhoto.Add(MonsterManager.monsters[i]);
-                    MonsterManager.monsters[i].GetDistanceFromCamera();
+                    newPhoto.monsters.Add(MonsterManager.monsters[i]);
+                    MonsterManager.monsters[i].SetDistanceFromCamera();
+                    MonsterManager.monsters[i].SetPositionFromCenter();
                 }
                 else
                 {
@@ -59,11 +61,12 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
                 }
             }
 
+            newPhoto.CalculateScore();
+
             Texture2D newTexture; // here's the new texture we're about to add to our list of screenshots
             newTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false); // getting screenshot by getting screen width/height and colord
             newTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false); // reading all the pictures on the screen to be stored for our screenshot
             newTexture.Apply(); // making sure that texture is UP TO DATE!
-           
            
             newPhoto.photoImage = newTexture; // setting screenshot to the Photo object
             screenshots.Add(newPhoto); // adding photo to list of screenshots!

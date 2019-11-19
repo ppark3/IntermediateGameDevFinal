@@ -22,24 +22,28 @@ public class MonsterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    public void isVisible()
+    {
         Vector3 viewPos = mainCamera.WorldToViewportPoint(this.transform.position);
-        if (viewPos.x < 0.9 && viewPos.x > 0.1 && viewPos.y < 0.9 && viewPos.y > 0.1)
+        if ((viewPos.x < 1 && viewPos.x > 0 && viewPos.y < 1 && viewPos.y > 0) && viewPos.z > 0)
         {
             isinCamera = true;
         }
-        /*if(renderer.isVisible)
+        else
         {
-            Debug.Log("aaaa");
-        }*/
+            isinCamera = false;
+        }
     }
 
-    public void GetDistanceFromCamera()
+    public void SetDistanceFromCamera()
     {
-        float distance = Vector3.Distance(this.transform.position, mainCamera.transform.position);
-        _distance = distance;
+        _distance = Vector3.Distance(this.transform.position, mainCamera.transform.position);
     }
 
-    public void GetPositionFromCenter()
+    public void SetPositionFromCenter()
     {
         Vector3 viewPos = mainCamera.WorldToViewportPoint(this.transform.position);
         float xposition = Mathf.Abs((viewPos.x) - (1 - viewPos.x));
