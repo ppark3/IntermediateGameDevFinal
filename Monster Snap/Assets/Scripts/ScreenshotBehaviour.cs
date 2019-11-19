@@ -41,12 +41,16 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     {
         if (canTakePicture && (GameManager.gm.storedPhotos.Count < GameManager.gm.maxFilm))
         {
+            Photo newPhoto = new Photo();
+            newPhoto.CalculateScore();
+
             Texture2D newTexture; // here's the new texture we're about to add to our list of screenshots
             newTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false); // getting screenshot by getting screen width/height and colord
             newTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false); // reading all the pictures on the screen to be stored for our screenshot
             newTexture.Apply(); // making sure that texture is UP TO DATE!
             screenshots.Add(newTexture); // adding texture to list of screenshots!
             GameManager.gm.storedPhotos.Add(newTexture);
+            newPhoto.photoImage = newTexture;
 
             numberOfFilmLeft.text = "Film Left: " + (GameManager.gm.maxFilm - GameManager.gm.storedPhotos.Count);
 
