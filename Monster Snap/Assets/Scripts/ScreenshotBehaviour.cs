@@ -8,7 +8,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
 {
 
     public KeyCode pictureButton;
-    public List<Texture2D> screenshots; // list of textures that will be our screenshots
+    public List<Photo> screenshots; // list of textures that will be our screenshots
 
     public List<MonsterScript> monstersInPhoto; // temporary list that gets updated everytime screenshot is taken
 
@@ -25,7 +25,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     // Start is called before the first frame update
     void Start()
     {
-        screenshots = new List<Texture2D>(); //initializing list
+        screenshots = new List<Photo>(); //initializing list
         numberOfFilmLeft.text = "Film Left: " + (GameManager.gm.maxFilm - GameManager.gm.storedPhotos.Count);
     }
 
@@ -63,9 +63,11 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
             newTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false); // getting screenshot by getting screen width/height and colord
             newTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, false); // reading all the pictures on the screen to be stored for our screenshot
             newTexture.Apply(); // making sure that texture is UP TO DATE!
-            screenshots.Add(newTexture); // adding texture to list of screenshots!
-            GameManager.gm.storedPhotos.Add(newTexture);
-            newPhoto.photoImage = newTexture;
+           
+           
+            newPhoto.photoImage = newTexture; // setting screenshot to the Photo object
+            screenshots.Add(newPhoto); // adding photo to list of screenshots!
+            GameManager.gm.storedPhotos.Add(newPhoto);
 
             numberOfFilmLeft.text = "Film Left: " + (GameManager.gm.maxFilm - GameManager.gm.storedPhotos.Count);
 
