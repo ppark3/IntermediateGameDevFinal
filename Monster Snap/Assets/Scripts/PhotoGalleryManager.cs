@@ -33,7 +33,7 @@ public class PhotoGalleryManager : MonoBehaviour
             {
                 shownPhotos[i].enabled = true;
                 // i + (currentPage * 4) bc we want to make it easy to show things in fours
-                shownPhotos[i].sprite = GameManager.gm.TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)]);
+                shownPhotos[i].sprite = GameManager.gm.TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)].photoImage);
                 shownPhotos[i].gameObject.GetComponent<PhotoBehaviour>().myPhotoNum = i + (currentPage * 4);
 
             }

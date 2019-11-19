@@ -26,7 +26,7 @@ public class RatingHandler : MonoBehaviour
     {
         if (dh.currentLine < gm.storedPhotoNums.Count)
         {
-            showingPhoto.sprite = gm.TurnTextureIntoSprite(gm.storedPhotos[gm.storedPhotoNums[dh.currentLine]]);
+            showingPhoto.sprite = gm.TurnTextureIntoSprite(gm.storedPhotos[gm.storedPhotoNums[dh.currentLine]].photoImage);
         }
     }
 
