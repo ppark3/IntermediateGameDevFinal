@@ -4,17 +4,21 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="camMove.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="camMove.cs" t="Include" />
           <e p="camZoom.cs" t="Include" />
-          <e p="Creature.cs" t="Include" />
+          <e p="DialogueHandler.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="HighScoreHandler.cs" t="Include" />
+          <e p="MonsterManager.cs" t="Include" />
+          <e p="MonsterScript.cs" t="Include" />
           <e p="NameGetter.cs" t="Include" />
+          <e p="Photo.cs" t="Include" />
           <e p="PhotoBehaviour.cs" t="Include" />
           <e p="PhotoGalleryManager.cs" t="Include" />
           <e p="RailManager.cs" t="Include" />
           <e p="RailMovement.cs" t="Include" />
+          <e p="RatingHandler.cs" t="Include" />
           <e p="SceneController.cs" t="Include" />
           <e p="ScreenshotBehaviour.cs" t="Include" />
           <e p="TransitionController.cs" t="Include" />

@@ -26,6 +26,7 @@ public class camZoom : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // adjust fov based on zoom speed to create a zoom in/ out effect
         if (Input.GetKey(zoomKey) && mainCam.fieldOfView > zoomFOV)
         {
             // zoom in

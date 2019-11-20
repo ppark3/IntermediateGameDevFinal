@@ -11,6 +11,7 @@ public class camMove : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.FindWithTag("MainCamera");
+        // sets camera to be straight at start
         mainCam.transform.rotation = Quaternion.identity;
     }
 
@@ -20,6 +21,7 @@ public class camMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // move camera up and down (with bounds so you can't turn all the way around)
         if (Input.GetKey(KeyCode.W) && ((mainCam.transform.eulerAngles.x > 290) || (mainCam.transform.eulerAngles.x <= 80f)))
         {
             mainCam.transform.rotation *= Quaternion.AngleAxis(rotateSpeed, Vector3.left);
@@ -29,6 +31,7 @@ public class camMove : MonoBehaviour
             mainCam.transform.rotation *= Quaternion.AngleAxis(rotateSpeed, Vector3.right);
         }
 
+        // move cam left and right
         if (Input.GetKey(KeyCode.A))
         {
             mainCam.transform.rotation *= Quaternion.AngleAxis(rotateSpeed, Vector3.down);
@@ -42,6 +45,7 @@ public class camMove : MonoBehaviour
 
     private void LateUpdate()
     {
+        // lock z rotation
         mainCam.transform.rotation = Quaternion.Euler(mainCam.transform.eulerAngles.x, mainCam.transform.eulerAngles.y, 0);
     }
 }
