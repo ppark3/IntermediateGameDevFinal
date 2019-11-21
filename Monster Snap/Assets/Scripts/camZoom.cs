@@ -13,6 +13,8 @@ public class camZoom : MonoBehaviour
     public float normalFOV;
 
     public float zoomSpeed;
+
+    public static bool isZoomedIn;
     
     void Start()
     {
@@ -31,9 +33,11 @@ public class camZoom : MonoBehaviour
         {
             // zoom in
             mainCam.fieldOfView = mainCam.fieldOfView - zoomSpeed;
+            isZoomedIn = true;
         } else if (!Input.GetKey(zoomKey) && mainCam.fieldOfView < normalFOV)
         {
             mainCam.fieldOfView = mainCam.fieldOfView + zoomSpeed;
+            isZoomedIn = false;
         }
     }
 }

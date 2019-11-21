@@ -32,7 +32,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(pictureButton) && !canTakePicture)
+        if (Input.GetKeyDown(pictureButton) && !canTakePicture && camZoom.isZoomedIn)
         {
             canTakePicture = true;
         }
