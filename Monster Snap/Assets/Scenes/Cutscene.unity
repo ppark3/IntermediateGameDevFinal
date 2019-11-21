@@ -522,8 +522,8 @@ MonoBehaviour:
   mySprites: []
   myLines:
   - Heyo [name].
-  - 'Scientist: I''m scientist now'
-  - now i'm baby
+  - You're gonna go take some pictures of creatures or whatever.
+  - Have fuuuuun.
   currentLine: 0
   textSpeed: 0.01
   isActive: 0
