@@ -24,12 +24,12 @@ public class PhotoGalleryManager : MonoBehaviour
         
     }
 
-
+    // This method allows for photos to be shown
     void ShowPhotos()
     {
         for (int i = 0; i < shownPhotos.Length; i++)
         {
-            if ((i + (currentPage * 4)) < GameManager.gm.storedPhotos.Count) //making sure we're not going out of bounds
+            if ((i + (currentPage * 4)) < GameManager.gm.storedPhotos.Count) //making sure we're not going out of bounds. Only four photos shown at a time
             {
                 shownPhotos[i].enabled = true;
                 // i + (currentPage * 4) bc we want to make it easy to show things in fours

@@ -7,16 +7,16 @@ public class Photo : MonoBehaviour
     [System.Serializable]
     public class PhotoInstance
     {
-        public Texture2D photoImage;
-        public List<MonsterScript> monsters;
-        public string nameOfMainMonster;
+        public Texture2D photoImage; // Actual screenshot
+        public List<MonsterScript> monsters; // list of monsters in the photo
+        public string nameOfMainMonster; // name ( tag moreso) of the monster we are getting
 
-        public int finalScore;
+        public int finalScore; // the total score for this photo!
 
-        public int distanceScore;
-        public bool positionScore;
-        public int numberOfExtras;
-        public bool pose;
+        public int distanceScore; // the score you get based on distance
+        public bool positionScore; // the score you get based on how close the main monster is in the middle
+        public int numberOfExtras; // number of the same monster in the photo! ( you get bonus points)
+        public bool pose; // bool checking if the monster is doing a cool pose
 
         public PhotoInstance()
         {
