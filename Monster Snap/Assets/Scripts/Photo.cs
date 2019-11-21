@@ -15,7 +15,6 @@ public class Photo : MonoBehaviour
         public int finalScore; // the total score for this photo!
 
         public int distanceScore; // the score you get based on distance
-        public int positionScore; // the score you get based on how close the main monster is in the middle
         public int extrasScore; // number of the same monster in the photo! ( you get bonus points)
         public bool pose; // bool checking if the monster is doing a cool pose
 
@@ -59,23 +58,7 @@ public class Photo : MonoBehaviour
             {
                 return;
             }
-            // Here we're calculating the score based on how close to the center the creature was in the camera
-            if(mainMonster._position >= 1)
-            {
-                positionScore = 50;
-            }
-            else if (mainMonster._position < 1 && mainMonster._position > 0.5)
-            {
-                positionScore = 250;
-            }
-            else if (mainMonster._position < 0.5 && mainMonster._position > 0.2)
-            {
-                positionScore = 500;
-            }
-            else if (mainMonster._position < 0.2)
-            {
-                positionScore = 1000;
-            }
+
 
             // Here we're calculating the score based on the distance between the creature and the camera
             if (mainMonster._distance > 10)
@@ -103,7 +86,13 @@ public class Photo : MonoBehaviour
                     extrasScore += 20;
                 }
             }
-            finalScore = positionScore + extrasScore + distanceScore;
+            finalScore = extrasScore + distanceScore;
+
+            // Here we're doubling the score if the player has the creature in the center!
+            if (mainMonster._position < 0.2)
+            {
+                finalScore *= 2;
+            }
         }
     }
 }
