@@ -9,56 +9,101 @@ public class Photo : MonoBehaviour
     {
         public Texture2D photoImage; // Actual screenshot
         public List<MonsterScript> monsters; // list of monsters in the photo
+        MonsterScript mainMonster; // the main monster we're refrencing for points
         public string nameOfMainMonster; // name ( tag moreso) of the monster we are getting
 
         public int finalScore; // the total score for this photo!
 
         public int distanceScore; // the score you get based on distance
-        public bool positionScore; // the score you get based on how close the main monster is in the middle
-        public int numberOfExtras; // number of the same monster in the photo! ( you get bonus points)
+        public int positionScore; // the score you get based on how close the main monster is in the middle
+        public int extrasScore; // number of the same monster in the photo! ( you get bonus points)
         public bool pose; // bool checking if the monster is doing a cool pose
 
-        public PhotoInstance()
+        public PhotoInstance() // constructor for when a Photo Instance is created
         {
-            photoImage = null;
-            monsters = new List<MonsterScript>();
-            finalScore = 0;
+            photoImage = null; // sets screenshot to nothing
+            monsters = new List<MonsterScript>(); // initializes monsters list
+            finalScore = 0; // default score is 0
         }
 
+        //changes the string for MainMonster based on how many monsters are here and they're distance
         public void PickMainMonster()
         {
-            if (monsters.Count == 1)
+            if (monsters.Count == 1) // if there's only one monster, that's the main monster!
             {
+                mainMonster = monsters[0];
                 nameOfMainMonster = monsters[0].tag;
             }
-            else if (monsters.Count == 0)
+            else if (monsters.Count == 0) // if there's no monsters, there's no main monster!
             {
                 nameOfMainMonster = "No Monster";
             }
             else
             {
-                MonsterScript mainMon = monsters[0];
-                for (int i = 1; i < monsters.Count; i++)
+                nameOfMainMonster = monsters[0].tag;
+                mainMonster = monsters[0]; // sets the first monster as the main one by default
+                for (int i = 1; i < monsters.Count; i++) // loops through each monster in the photo
                 {
-                    if (monsters[i]._distance < mainMon._distance && monsters[i]._position < mainMon._position)
+                    if (monsters[i]._distance < mainMonster._distance && monsters[i]._position < mainMonster._position) // checks if their distance/position is better than the default
                     {
-                        mainMon = monsters[i];
+                        mainMonster = monsters[i]; // sets the best creature as the main one
                     }
                 }
             }
         }
 
+        //this function calculates all of the scores the Photo Instance class has
         public void CalculateScore()
         {
-            int temporaryFinalScore = 0;
+            if(mainMonster == null) // if there's no monster in the photo, go back!!!
+            {
+                return;
+            }
+            // Here we're calculating the score based on how close to the center the creature was in the camera
+            if(mainMonster._position >= 1)
+            {
+                positionScore = 50;
+            }
+            else if (mainMonster._position < 1 && mainMonster._position > 0.5)
+            {
+                positionScore = 250;
+            }
+            else if (mainMonster._position < 0.5 && mainMonster._position > 0.2)
+            {
+                positionScore = 500;
+            }
+            else if (mainMonster._position < 0.2)
+            {
+                positionScore = 1000;
+            }
 
-            // double if in the center, else add additional points
+            // Here we're calculating the score based on the distance between the creature and the camera
+            if (mainMonster._distance > 10)
+            {
+                distanceScore = 100;
+            }
+            else if (mainMonster._distance < 10 && mainMonster._distance > 5)
+            {
+                distanceScore = 200;
+            }
+            else if (mainMonster._distance < 5 && mainMonster._distance > 2)
+            {
+                distanceScore = 500;
+            }
+            else if (mainMonster._distance < 2)
+            {
+                distanceScore = 200;
+            }
 
-            // for size, it's more if distance is smaller... but also, if it's too close, you get less points, so pick a nice medium!
-
-            // I don't think we need to focus on giving points based on there being multiple monsters in a photo yet, though so don't sweat it!
-
-            finalScore = temporaryFinalScore;
+            // giving an extra +20 points if other monsters are in the photo
+            if (monsters.Count > 1)
+            {
+                foreach (MonsterScript mon in monsters)
+                {
+                    extrasScore += 20;
+                }
+            }
+            finalScore = positionScore + extrasScore + distanceScore;
         }
     }
 }

@@ -50,17 +50,21 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
                 MonsterManager.monsters[i].isVisible();
                 if (MonsterManager.monsters[i].isinCamera)
                 {
-                    monstersInPhoto.Add(MonsterManager.monsters[i]);
-                    newPhoto.monsters.Add(MonsterManager.monsters[i]);
                     MonsterManager.monsters[i].SetDistanceFromCamera();
                     MonsterManager.monsters[i].SetPositionFromCenter();
+
+                    if(MonsterManager.monsters[i]._distance < 15)
+                    {
+                        monstersInPhoto.Add(MonsterManager.monsters[i]);
+                        newPhoto.monsters.Add(MonsterManager.monsters[i]);
+                    }
                 }
                 else
                 {
                     MonsterManager.monsters[i]._distance = 0;
                 }
             }
-
+            newPhoto.PickMainMonster();
             newPhoto.CalculateScore();
 
             Texture2D newTexture; // here's the new texture we're about to add to our list of screenshots
@@ -80,11 +84,11 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
         }
     }
 
-    //function
+    //function that makes the newest screenshot show up in the corner of the screen
     private void ShowNewPhotoOnCanvas(Texture2D newTexture)
     {
-        //the below line creates a sprite out of the texture we have so it can be shown on a canvas
         img.gameObject.SetActive(true);
+        //the below line creates a sprite out of the texture we have so it can be shown on a canvas
         img.sprite = Sprite.Create(newTexture, new Rect(0.0f, 0.0f, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
         img.GetComponent<Animator>().Play(0); // plays the animation for the image to fade in and out
 

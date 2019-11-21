@@ -17,7 +17,7 @@ public class HighScoreHandler : MonoBehaviour
 
     public HighScore fakeScore;
 
-    string filePathData = Path.Combine(Application.streamingAssetsPath, "highScores.json");
+    string filePathData = Path.Combine(Application.streamingAssetsPath, "highScores.json"); // where are we saving this data?
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +77,7 @@ public class HighScoreHandler : MonoBehaviour
                 _scoreObjects[i].enabled = false;
             }
         }
+        SaveHighScores();
     }
 
     public void SaveHighScores()

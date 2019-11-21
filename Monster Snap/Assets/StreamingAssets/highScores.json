@@ -1,20 +1,28 @@
 {
     "scores": [
         {
-            "_name": "brock",
-            "_num": 30
+            "_name": "Sleepyhead",
+            "_num": 8340
         },
         {
-            "_name": "ash",
-            "_num": 20
+            "_name": "im baby",
+            "_num": 3640
+        },
+        {
+            "_name": "oak",
+            "_num": 100
         },
         {
             "_name": "misty",
             "_num": 50
         },
         {
-            "_name": "oak",
-            "_num": 100
+            "_name": "brock",
+            "_num": 30
+        },
+        {
+            "_name": "ash",
+            "_num": 20
         }
     ]
 }

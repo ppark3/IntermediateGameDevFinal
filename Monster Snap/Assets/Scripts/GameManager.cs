@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public List<Photo.PhotoInstance> storedPhotos; // stores photos after a level ends so it can be scored etc.
     public List<int> storedPhotoNums; // stores the number of each photo we chose
-    public int maxFilm;
+    public int maxFilm; // max amount of photos that can be taken
 
     public HighScore playerScore; // player's name and score is stored in this class
 
@@ -29,14 +29,10 @@ public class GameManager : MonoBehaviour
         maxFilm = 50;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
-
+    // This method turns a Texture 2D into a sprite. In goes a texture, out goes a sprite!
     public Sprite TurnTextureIntoSprite(Texture2D newTexture)
     {
+        //The below line of code was taken from Unity's documentation
         Sprite s = Sprite.Create(newTexture, new Rect(0.0f, 0.0f, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
         return s;
     }

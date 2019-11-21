@@ -10,10 +10,10 @@ public class SceneController : MonoBehaviour // script should be on the game man
     public static SceneController sC;
     TransitionController tc;
 
-    public float timer;
-    public bool timerIsOn;
-    bool didStoreNum;
-    bool didStoreName;
+    public float timer; // timer for having a pause between scene changes
+    public bool timerIsOn; // bool to turn on timer
+    bool didStoreNum; // are we storing a scene number to change to?
+    bool didStoreName; // are we storing a scene name to change to?
 
     public string storedName;
     public int storedNum;
@@ -22,7 +22,7 @@ public class SceneController : MonoBehaviour // script should be on the game man
     // Start is called before the first frame update
     void Start()
     {
-        tc = FindObjectOfType<TransitionController>(); // transition controller should be within the GameManager in the scene
+        tc = FindObjectOfType<TransitionController>(); 
         sC = this;
 
         timerIsOn = true;
@@ -54,19 +54,19 @@ public class SceneController : MonoBehaviour // script should be on the game man
 
         if (currentScene == 0)
         {
-            if (Input.anyKeyDown && timerIsOn == false)
+            if (Input.anyKeyDown && timerIsOn == false) // if statement to stop people from accidentally skipping the start scene
             {
                 //here, we are going to the character select scene after 0.5 seconds and fading to black whilst loading
                 WaitThenLoadWithTransition(1, 0.5f, 0);
             }
         }
-        if (GetSceneName() == "TutorialScene" && Input.GetKeyDown(KeyCode.J))
+        if (GetSceneName() == "TutorialScene" && Input.GetKeyDown(KeyCode.J)) // if statement for proceeding past the tutorial
         {
             WaitThenLoadWithTransition("CourseGameplay", 0.5f, 2);
         }
 
 
-        if (timerIsOn)
+        if (timerIsOn) // if statement to run the timer and change the scene
         {
             timer -= Time.deltaTime;
             if (timer <= 0f)
@@ -92,14 +92,14 @@ public class SceneController : MonoBehaviour // script should be on the game man
         }
     }
 
-    public string GetSceneName()
+    public string GetSceneName() // get the name of the current scene
     {
         return SceneManager.GetActiveScene().name;
     }
 
     public void BackAScene() //when you wanna go back one scene
     {
-        if (currentScene != 0)
+        if (currentScene != 0) // makes sure we can't go in the negatives
         {
             currentScene -= 1;
             LoadScene(currentScene);
@@ -107,30 +107,29 @@ public class SceneController : MonoBehaviour // script should be on the game man
     }
     public void ForwardAScene() //when you wanna go forward one scene
     {
-        if (currentScene != SceneManager.sceneCountInBuildSettings - 1)
+        if (currentScene != SceneManager.sceneCountInBuildSettings - 1) // make sure we can't go past the max number of scenes there
         {
             currentScene += 1;
             LoadScene(currentScene);
         }
     }
-    public void ResetScene()
+    public void ResetScene() // resets scene
     {
-
         LoadScene(currentScene);
 
     }
 
-    public void LoadScene(int num)
+    public void LoadScene(int num) // loads scene based on number
     {
         SceneManager.LoadScene(num);
     }
 
-    public void LoadScene(string sName)
+    public void LoadScene(string sName) // loads scene based on name
     {
         SceneManager.LoadScene(sName);
     }
 
-    public void WaitThenLoad(string sName, float time)
+    public void WaitThenLoad(string sName, float time) // loads scene based on name and waits before switching
     {
         didStoreName = true;
         timerIsOn = true;
@@ -138,7 +137,7 @@ public class SceneController : MonoBehaviour // script should be on the game man
         storedName = sName;
     }
 
-    public void WaitThenLoadWithTransition(string sName, float time, int whichTransition)
+    public void WaitThenLoadWithTransition(string sName, float time, int whichTransition) // loads scene with a timer and a nice transition
     {
         didStoreName = true;
         timerIsOn = true;

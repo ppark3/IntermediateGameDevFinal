@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script holding monster info
 public class MonsterScript : MonoBehaviour
 {
     Renderer renderer;
@@ -25,10 +26,10 @@ public class MonsterScript : MonoBehaviour
 
     }
 
-    public void isVisible()
+    public void isVisible() // if the creature is visible to a camera
     {
         Vector3 viewPos = mainCamera.WorldToViewportPoint(this.transform.position);
-        if ((viewPos.x < 1 && viewPos.x > 0 && viewPos.y < 1 && viewPos.y > 0) && viewPos.z > 0)
+        if ((viewPos.x < 1 && viewPos.x > 0 && viewPos.y < 1 && viewPos.y > 0) && viewPos.z > 0) // and if the creature is within the main camera...
         {
             isinCamera = true;
         }
@@ -38,12 +39,12 @@ public class MonsterScript : MonoBehaviour
         }
     }
 
-    public void SetDistanceFromCamera()
+    public void SetDistanceFromCamera() // Stores the distance between the monster and the camera
     {
         _distance = Vector3.Distance(this.transform.position, mainCamera.transform.position);
     }
 
-    public void SetPositionFromCenter()
+    public void SetPositionFromCenter() // Stores the position of the creature within the camera's rectangle. Checks how far away it is from the center!
     {
         Vector3 viewPos = mainCamera.WorldToViewportPoint(this.transform.position);
         float xposition = Mathf.Abs((viewPos.x) - (1 - viewPos.x));

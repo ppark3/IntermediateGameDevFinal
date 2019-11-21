@@ -28,11 +28,18 @@ public class RatingHandler : MonoBehaviour
         {
             showingPhoto.sprite = gm.TurnTextureIntoSprite(gm.storedPhotos[gm.storedPhotoNums[dh.currentLine]].photoImage);
         }
+        else
+        {
+            if (!dh.isActive)
+            {
+                SceneController.sC.LoadScene("HighScore Scene"); // going to hs scene with no loading temporarily >o>
+            }
+        }
     }
 
     string CreateSentence(int num) // eventually we should change what this method is when we get scoring going!
     {
-        return "Wow! This is photo number " + num + "!";
+        return "Wow! This is photo number " + num + "! It's tagged with " + gm.storedPhotos[num].nameOfMainMonster;
     }
 
 
