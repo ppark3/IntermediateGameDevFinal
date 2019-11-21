@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RailManager : MonoBehaviour
 {
+    // the way movement works is it has a whole bunch of locations and constantly moves toward a new location every time it reaches its current one
+    // it starts off by having its first location be set as location1
+    // after the player reaches one location, it changes it the location variable in <RailMovement> to the next location in this script
 
     public Transform location1;
     public Transform location2;
@@ -45,6 +48,8 @@ public class RailManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // when player reaches a location, it updates its new location
+        // everything is just a repetition of this
         if (other.gameObject.GetInstanceID() == location1.gameObject.GetInstanceID())
         {
             GetComponent<RailMovement>().location = location2;
@@ -70,7 +75,7 @@ public class RailManager : MonoBehaviour
             GetComponent<RailMovement>().location = location7;
         }
 
-        // this is the location right before the waterfall
+        // this is the location right before the waterfall so we speed it up (to make it look like you're falling)
         if (other.gameObject.GetInstanceID() == location7.gameObject.GetInstanceID())
         {
             GetComponent<RailMovement>().location = location8;
@@ -81,6 +86,8 @@ public class RailManager : MonoBehaviour
             GetComponent<RailMovement>().location = location9;
             GetComponent<RailMovement>().speed = 5f;
         }
+
+        // and then we return the speed to normal so that you're just "riding the trail car" again
         if (other.gameObject.GetInstanceID() == location9.gameObject.GetInstanceID())
         {
             GetComponent<RailMovement>().location = location10;
