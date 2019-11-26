@@ -53,7 +53,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
                     MonsterManager.monsters[i].SetDistanceFromCamera();
                     MonsterManager.monsters[i].SetPositionFromCenter();
 
-                    if(MonsterManager.monsters[i]._distance < 15)
+                    if(MonsterManager.monsters[i]._distance < 25)
                     {
                         monstersInPhoto.Add(MonsterManager.monsters[i]);
                         newPhoto.monsters.Add(MonsterManager.monsters[i]);

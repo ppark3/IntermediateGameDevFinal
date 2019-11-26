@@ -36,7 +36,7 @@ public class Photo : MonoBehaviour
             }
             else if (monsters.Count == 0) // if there's no monsters, there's no main monster!
             {
-                nameOfMainMonster = "No Monster";
+                nameOfMainMonster = "no monster";
             }
             else
             {

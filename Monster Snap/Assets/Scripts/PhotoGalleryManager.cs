@@ -70,7 +70,7 @@ public class PhotoGalleryManager : MonoBehaviour
 
     public void FinishGallery() // temp method allowing the player to skip over the naming scene and go straight to the rating scene
     {
-        SceneController.sC.LoadScene("RatingScene");
+        SceneController.sC.LoadScene("CreatureNameScene");
     }
 
 }

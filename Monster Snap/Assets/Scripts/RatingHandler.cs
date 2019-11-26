@@ -41,9 +41,9 @@ public class RatingHandler : MonoBehaviour
     {
         string sentence = "";
 
-        if(gm.storedPhotos[num].nameOfMainMonster.ToLower() == " no monster")
+        if(gm.storedPhotos[num].nameOfMainMonster.ToLower() == "no monster")
         {
-            return "There's no creatures in this picture! No points!";
+            return "I can't clearly see a creature in this picture! No points!";
         }
 
         // What's the name of the monster?
@@ -54,13 +54,13 @@ public class RatingHandler : MonoBehaviour
         switch(gm.storedPhotos[num].distanceScore)
         {
             case 100:
-                sentence += "This creature is pretty far away so...100 points!";
+                sentence += "This creature is pretty far away so...100 points! ";
                 break;
             case 200:
-                sentence += "...You're almost at the perfect distance, but not quite. 200 points!";
+                sentence += "...You're almost at the perfect distance, but not quite. 200 points! ";
                 break;
             case 500:
-                sentence += "I can perfectly see this creature! 500 points!";
+                sentence += "I can perfectly see this creature! 500 points! ";
                 break;
         }
 
