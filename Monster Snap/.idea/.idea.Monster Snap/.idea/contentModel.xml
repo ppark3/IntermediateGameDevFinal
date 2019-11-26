@@ -13,6 +13,7 @@
           <e p="MonsterManager.cs" t="Include" />
           <e p="MonsterScript.cs" t="Include" />
           <e p="NameGetter.cs" t="Include" />
+          <e p="nextScene.cs" t="Include" />
           <e p="Photo.cs" t="Include" />
           <e p="PhotoBehaviour.cs" t="Include" />
           <e p="PhotoGalleryManager.cs" t="Include" />

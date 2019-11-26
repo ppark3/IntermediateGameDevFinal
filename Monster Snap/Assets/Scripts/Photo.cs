@@ -15,6 +15,7 @@ public class Photo : MonoBehaviour
         public int finalScore; // the total score for this photo!
 
         public int distanceScore; // the score you get based on distance
+        public bool isInCenter; // doubles score if the monster was in the center of the photo
         public int extrasScore; // number of the same monster in the photo! ( you get bonus points)
         public bool pose; // bool checking if the monster is doing a cool pose
 
@@ -35,7 +36,7 @@ public class Photo : MonoBehaviour
             }
             else if (monsters.Count == 0) // if there's no monsters, there's no main monster!
             {
-                nameOfMainMonster = "No Monster";
+                nameOfMainMonster = "no monster";
             }
             else
             {
@@ -92,6 +93,7 @@ public class Photo : MonoBehaviour
             if (mainMonster._position < 0.2)
             {
                 finalScore *= 2;
+                isInCenter = true;
             }
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PhotoGalleryManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PhotoGalleryManager : MonoBehaviour
 
     public Image[] shownPhotos;
 
+    public EventSystem es;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +70,7 @@ public class PhotoGalleryManager : MonoBehaviour
 
     public void FinishGallery() // temp method allowing the player to skip over the naming scene and go straight to the rating scene
     {
-        SceneController.sC.LoadScene("RatingScene");
+        SceneController.sC.LoadScene("CreatureNameScene");
     }
 
 }
