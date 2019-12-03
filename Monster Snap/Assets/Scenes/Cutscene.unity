@@ -521,9 +521,9 @@ MonoBehaviour:
   img: {fileID: 1838804013}
   mySprites: []
   myLines:
-  - Heyo [name].
-  - You're gonna go take some pictures of creatures or whatever.
-  - Have fuuuuun.
+  - 'Boss: Heyo [name].'
+  - 'Boss: It''s your first time going out to discover new creatures I assume?'
+  - 'Boss: Well, guess of me to give ya the run down right?'
   currentLine: 0
   textSpeed: 0.01
   isActive: 0
