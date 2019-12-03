@@ -34,6 +34,9 @@ public class RailManager : MonoBehaviour
     public Transform location24;
     public Transform location25;
 
+    [Space] // making a space to see the waterfall particle system
+    public GameObject waterSplash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +86,8 @@ public class RailManager : MonoBehaviour
         }
         if (other.gameObject.GetInstanceID() == location8.gameObject.GetInstanceID())
         {
+            Instantiate(waterSplash, transform.position, waterSplash.transform.rotation);
+            // instantiate splash at where the player is with the particles rotation
             GetComponent<RailMovement>().location = location9;
             GetComponent<RailMovement>().speed = 5f;
         }

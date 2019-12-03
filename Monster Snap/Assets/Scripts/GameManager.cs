@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
 
-        maxFilm = 50;
+        maxFilm = 30;
     }
 
     // This method turns a Texture 2D into a sprite. In goes a texture, out goes a sprite!
