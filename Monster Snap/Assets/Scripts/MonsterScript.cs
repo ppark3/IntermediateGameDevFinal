@@ -26,12 +26,33 @@ public class MonsterScript : MonoBehaviour
 
     }
 
-    public void isVisible() // if the creature is visible to a camera
+    public void isVisible()
     {
         Vector3 viewPos = mainCamera.WorldToViewportPoint(this.transform.position);
-        if ((viewPos.x < 1 && viewPos.x > 0 && viewPos.y < 1 && viewPos.y > 0) && viewPos.z > 0) // and if the creature is within the main camera...
+        if ((viewPos.x < 1 && viewPos.x > 0 && viewPos.y < 1 && viewPos.y > 0) && viewPos.z > 0) // checking to see if the monster is in the camera view
         {
-            isinCamera = true;
+            // now that we know if the monster is in the camera view, we need to draw a raycast from the monster to the player
+            // we do this because we need to check if there is a gameobject between the player and monster blocking the player's view
+            // if the raycast hits anything other than the player, we do not check the isinCamera variable
+            Ray myRay = new Ray(this.transform.position, GameObject.Find("Player").transform.position - this.transform.position);
+            Debug.DrawRay(this.transform.position, GameObject.Find("Player").transform.position - this.transform.position, Color.cyan, 100f);
+            RaycastHit myHit = new RaycastHit(); 
+
+            if (Physics.Raycast(myRay, out myHit, 10000f))
+            {
+                if (myHit.collider.tag == "Player")
+                {
+                    isinCamera = true;
+                }
+                else
+                {
+                    isinCamera = false;
+                }
+            }
+            else
+            {
+                isinCamera = false;
+            }
         }
         else
         {
