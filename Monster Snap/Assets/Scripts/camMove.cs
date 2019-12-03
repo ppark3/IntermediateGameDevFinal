@@ -6,7 +6,10 @@ public class camMove : MonoBehaviour
 {
     private GameObject mainCam;
     
-    public float rotateSpeed;
+    private float rotateSpeed;
+
+    public float regularSpeed;
+    public float zoomedInSpeed;
     
     void Start()
     {
@@ -17,6 +20,14 @@ public class camMove : MonoBehaviour
 
     void Update()
     {
+        if (camZoom.isZoomedIn)
+        {
+            rotateSpeed = zoomedInSpeed;
+        }
+        else
+        {
+            rotateSpeed = regularSpeed;
+        }
     }
 
     private void FixedUpdate()

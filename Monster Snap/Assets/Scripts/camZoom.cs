@@ -5,6 +5,8 @@ using UnityEngine;
 public class camZoom : MonoBehaviour
 {
     private Camera mainCam;
+    public GameObject zoomUI;
+    public GameObject filmLeft;
 
     public KeyCode zoomKey;
 
@@ -20,10 +22,22 @@ public class camZoom : MonoBehaviour
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         mainCam.fieldOfView = normalFOV;
+        zoomUI.SetActive(false);
+        filmLeft.SetActive(true);
     }
     
     void Update()
     {
+        if (isZoomedIn)
+        {
+            zoomUI.SetActive(true);
+            filmLeft.SetActive(false);
+        }
+        else
+        {
+            zoomUI.SetActive(false);
+            filmLeft.SetActive(true);
+        }
     }
 
     private void FixedUpdate()
