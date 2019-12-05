@@ -18,6 +18,9 @@ public class NamePrompter : MonoBehaviour // works with creature name controller
     // Update is called once per frame
     void Update()
     {
-        _text.text = "Give this " + cnc.monstersToBeNamed[cnc.posInList] + " a name!";   
+        if (cnc.monstersToBeNamed.Count > cnc.posInList)
+        {
+            _text.text = "Give this " + cnc.monstersToBeNamed[cnc.posInList] + " a name!";
+        }
     }
 }

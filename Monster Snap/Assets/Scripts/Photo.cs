@@ -62,11 +62,11 @@ public class Photo : MonoBehaviour
 
 
             // Here we're calculating the score based on the distance between the creature and the camera
-            if (mainMonster._distance > 10)
+            if (mainMonster._distance > 8)
             {
                 distanceScore = 100;
             }
-            else if (mainMonster._distance < 10 && mainMonster._distance > 5)
+            else if (mainMonster._distance < 8 && mainMonster._distance > 5)
             {
                 distanceScore = 200;
             }

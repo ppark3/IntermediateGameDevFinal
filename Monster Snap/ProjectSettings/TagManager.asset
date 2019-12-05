@@ -9,6 +9,7 @@ TagManager:
   - plant
   - herbivore
   - sleepyboy
+  - tigerbee
   layers:
   - Default
   - TransparentFX

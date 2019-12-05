@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.EventSystems;
 public class CreatureNameController : MonoBehaviour
 {
     public TMP_InputField input;
@@ -34,6 +34,9 @@ public class CreatureNameController : MonoBehaviour
     public void SaveName()
     {
         ChangeAllMonstersNames(input.text);
+        EventSystem e = FindObjectOfType<EventSystem>();
+        input.text = "";
+        e.SetSelectedGameObject(input.gameObject);
     }
 
     void ShowCurrentMonsters()
