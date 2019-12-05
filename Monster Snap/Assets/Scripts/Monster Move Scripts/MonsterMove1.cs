@@ -13,7 +13,6 @@ public class MonsterMove1 : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        speed = 5f;
     }
 
     // Update is called once per frame
