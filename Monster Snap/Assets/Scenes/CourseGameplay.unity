@@ -1712,7 +1712,7 @@ MonoBehaviour:
   player: {fileID: 0}
   startMove: 0
   destination1: {fileID: 1094844902}
-  speed: 0
+  speed: 7
 --- !u!1 &176292364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,7 +2999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   startMove: 0
-  speed: 5
+  speed: 7
   location: {fileID: 0}
   location1: {fileID: 1167093724}
   location2: {fileID: 2098477684}
@@ -4946,7 +4946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   startMove: 0
-  speed: 5
+  speed: 7
   location: {fileID: 0}
   location1: {fileID: 1379598351}
   location2: {fileID: 83258539}
@@ -18829,7 +18829,7 @@ MonoBehaviour:
   player: {fileID: 0}
   startMove: 0
   destination1: {fileID: 241979743}
-  speed: 1
+  speed: 1.5
 --- !u!1 &1439853508
 GameObject:
   m_ObjectHideFlags: 0
@@ -22809,7 +22809,7 @@ MonoBehaviour:
   player: {fileID: 0}
   startMove: 0
   destination1: {fileID: 31899271}
-  speed: 0
+  speed: 7
 --- !u!1 &1755934430
 GameObject:
   m_ObjectHideFlags: 0
@@ -23740,7 +23740,7 @@ MonoBehaviour:
   player: {fileID: 0}
   startMove: 0
   destination1: {fileID: 1864526861}
-  speed: 0
+  speed: 7
 --- !u!1001 &1820501054
 PrefabInstance:
   m_ObjectHideFlags: 0
