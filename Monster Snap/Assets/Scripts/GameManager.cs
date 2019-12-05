@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         }
 
         maxFilm = 30;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // This method turns a Texture 2D into a sprite. In goes a texture, out goes a sprite!

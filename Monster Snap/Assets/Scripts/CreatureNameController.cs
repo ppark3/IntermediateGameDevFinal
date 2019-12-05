@@ -58,7 +58,7 @@ public class CreatureNameController : MonoBehaviour
         posInList++;
         if (posInList >= monstersToBeNamed.Count)
         {
-            SceneController.sC.ForwardAScene();
+            SceneController.sC.LoadScene("RatingScene");
             return;
         }
         ShowCurrentMonsters();
