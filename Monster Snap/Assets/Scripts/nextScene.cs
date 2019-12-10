@@ -5,7 +5,7 @@ using UnityEngine;
 public class nextScene : MonoBehaviour
 {
     public float waitTime;
-    public int sceneToLoad;
+    public string sceneToLoad;
     
     void Start()
     {

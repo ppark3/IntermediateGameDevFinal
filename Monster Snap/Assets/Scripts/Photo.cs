@@ -87,6 +87,14 @@ public class Photo : MonoBehaviour
                     extrasScore += 20;
                 }
             }
+
+            // Bonus points if the creature is doing a special thing
+            if(mainMonster.isDoingSpecialAction)
+            {
+                extrasScore += 70;
+            }
+
+
             finalScore = extrasScore + distanceScore;
 
             // Here we're doubling the score if the player has the creature in the center!

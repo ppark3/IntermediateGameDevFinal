@@ -7,8 +7,10 @@ using UnityEngine.EventSystems;
 public class PhotoGalleryManager : MonoBehaviour
 {
     public int currentPage; // each page shows four photos. Depending on the page it'll show different photos
+    public int monsterTracker; // tracking which monsters photos are being shown
 
-    public Image[] shownPhotos;
+    public Image[] shownPhotos; // in the scene
+    public List<Sprite> monsterPhotos; // hsould be of one monster at a time
 
     public EventSystem es;
 
@@ -16,7 +18,6 @@ public class PhotoGalleryManager : MonoBehaviour
     void Start()
     {
         GameManager.gm.storedPhotoNums = new List<int>();
-        ShowPhotos();
     }
 
 
@@ -26,17 +27,44 @@ public class PhotoGalleryManager : MonoBehaviour
         
     }
 
+    public void GetNewPhotos() // gets new photos based on which monster is being shown
+    {
+        monsterPhotos = new List<Sprite>();
+
+        if (monsterTracker < GameManager.gm.monstersInPhotos.Count)
+        {
+            FinishGallery();
+            return;
+        }
+
+        foreach (Photo.PhotoInstance p in GameManager.gm.storedPhotos)
+        {
+            if(p.nameOfMainMonster == GameManager.gm.monstersInPhotos[monsterTracker])
+            {
+                monsterPhotos.Add(GameManager.gm.TurnTextureIntoSprite(p.photoImage));
+            }
+        }
+       
+        ShowPhotos();
+        
+       
+    }
+
+
+
+
+
     // This method allows for photos to be shown
     void ShowPhotos()
     {
         for (int i = 0; i < shownPhotos.Length; i++)
         {
-            if ((i + (currentPage * 4)) < GameManager.gm.storedPhotos.Count) //making sure we're not going out of bounds. Only four photos shown at a time
+            if ((i + (currentPage * 4)) < monsterPhotos.Count) //making sure we're not going out of bounds. Only four photos shown at a time
             {
                 shownPhotos[i].enabled = true;
                 // i + (currentPage * 4) bc we want to make it easy to show things in fours
-                shownPhotos[i].sprite = GameManager.gm.TurnTextureIntoSprite(GameManager.gm.storedPhotos[i + (currentPage * 4)].photoImage);
-                shownPhotos[i].gameObject.GetComponent<PhotoBehaviour>().myPhotoNum = i + (currentPage * 4);
+                shownPhotos[i].sprite = monsterPhotos[i + (currentPage * 4)];
+                shownPhotos[i].GetComponent<PhotoBehaviour>().FindMyPhotoNum();
 
             }
             else

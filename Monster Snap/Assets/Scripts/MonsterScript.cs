@@ -10,6 +10,7 @@ public class MonsterScript : MonoBehaviour
     public bool isinCamera;
     public float _distance;
     public float _position;
+    public bool isDoingSpecialAction;
 
     // Start is called before the first frame update
     void Start()

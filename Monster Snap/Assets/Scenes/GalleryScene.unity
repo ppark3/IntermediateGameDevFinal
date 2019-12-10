@@ -785,11 +785,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPage: 0
+  monsterTracker: 0
   shownPhotos:
   - {fileID: 552819492}
   - {fileID: 654188212}
   - {fileID: 1100823440}
   - {fileID: 234315696}
+  monsterPhotos: []
   es: {fileID: 631405183}
 --- !u!114 &605846496
 MonoBehaviour:
@@ -1771,12 +1773,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1223124130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8d4e6254c7645978de2c543960a174, type: 3}
+  m_Script: {fileID: 11500000, guid: 81638a438d672469a9d5af778cb74507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 0}
-  amtLeft: 0
-  totalPhotosTaken: 0
 --- !u!1 &2047330160
 GameObject:
   m_ObjectHideFlags: 0

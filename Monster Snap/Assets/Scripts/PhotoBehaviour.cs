@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class PhotoBehaviour : MonoBehaviour
 {
-    PhotoCountDown pcd;
+    PhotoCountDown pcd; // no longer in use
+    PhotoGalleryManager pgm;
     public int myPhotoNum; // where is this photo in the list?
-
+    Image img;
 
     private void Start()
     {
-        pcd = FindObjectOfType<PhotoCountDown>();
+        img = GetComponent<Image>();
+        pgm = FindObjectOfType<PhotoGalleryManager>();
+        //pcd = FindObjectOfType<PhotoCountDown>();
     }
 
     // Start is called before the first frame update
@@ -21,13 +24,29 @@ public class PhotoBehaviour : MonoBehaviour
 
         if(isInChosenList()) // if the photo was chosen already...
         {
-            GetComponent<Image>().color = Color.gray;
+            img.color = Color.gray;
         }
         else // if the photo wasn't chosen yet!
         {
-            GetComponent<Image>().color = Color.white;
+            img.color = Color.white;
         }
     }
+
+
+    public void FindMyPhotoNum()
+    {
+        int tracker = 0;
+        foreach (Photo.PhotoInstance p in GameManager.gm.storedPhotos)
+        {
+            if(img.sprite == GameManager.gm.TurnTextureIntoSprite(p.photoImage))
+            {
+                myPhotoNum = tracker;
+                return;
+            }
+            tracker++;
+        }
+    }
+
 
     //if you choose a photo...
     public void ChoosePhoto()
@@ -40,14 +59,16 @@ public class PhotoBehaviour : MonoBehaviour
         }
         GameManager.gm.playerScore._num += GameManager.gm.storedPhotos[myPhotoNum].finalScore; // adding a score to the player's score
         GameManager.gm.storedPhotoNums.Add(myPhotoNum); // store this photo number into a list!
-        pcd.amtLeft--; // you have less photos to choose from
+
+        pgm.monsterTracker++;
+        pgm.GetNewPhotos();
     }
 
-    //if you deselect the photo... NOTE: THIS IS NOT IMPLEMENTED YET
+    //if you deselect the photo... NOTE: YOU CAN NO LONGER DO THIS IN THE NEWER VERSION
     public void DeselectPhoto()
     {
         pcd.amtLeft++; // you have more photos to choose from
-        GameManager.gm.playerScore._num -= GameManager.gm.storedPhotos[myPhotoNum].finalScore; // adding a score to the 
+        GameManager.gm.playerScore._num -= GameManager.gm.storedPhotos[myPhotoNum].finalScore; // subtracting a score to the 
         GameManager.gm.storedPhotoNums.Remove(myPhotoNum); // store this photo number into a list!
     }
 

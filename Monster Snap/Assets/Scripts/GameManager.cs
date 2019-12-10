@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public HighScore playerScore; // player's name and score is stored in this class
 
+    public List<string> monstersInPhotos; //stores the names of the monsters in YOUR photos
+    // the above list of string was made to be used in PhotoGallery manager
+
     // Start is called before the first frame update
     void Start()
     {

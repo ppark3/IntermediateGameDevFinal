@@ -54,7 +54,7 @@ public class CreatureNameController : MonoBehaviour
                 p.nameOfMainMonster = newName;
             }
         }
-
+        gm.monstersInPhotos.Add(newName);
         posInList++;
         if (posInList >= monstersToBeNamed.Count)
         {
@@ -65,6 +65,7 @@ public class CreatureNameController : MonoBehaviour
     }
     void StoreMonstersToBeNamed()
     {
+        gm.monstersInPhotos = new List<string>();
         int tracker = 0;
         numsOfNamedMonsters = new List<int>();
         monstersToBeNamed = new List<string>();
