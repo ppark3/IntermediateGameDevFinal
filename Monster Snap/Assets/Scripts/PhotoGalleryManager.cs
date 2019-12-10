@@ -10,7 +10,7 @@ public class PhotoGalleryManager : MonoBehaviour
     public int monsterTracker; // tracking which monsters photos are being shown
 
     public Image[] shownPhotos; // in the scene
-    public List<Sprite> monsterPhotos; // hsould be of one monster at a time
+    public List<Photo.PhotoInstance> monsterPhotos; // should be of one monster at a time
 
     public EventSystem es;
 
@@ -18,6 +18,7 @@ public class PhotoGalleryManager : MonoBehaviour
     void Start()
     {
         GameManager.gm.storedPhotoNums = new List<int>();
+        GetNewPhotos();
     }
 
 
@@ -29,9 +30,10 @@ public class PhotoGalleryManager : MonoBehaviour
 
     public void GetNewPhotos() // gets new photos based on which monster is being shown
     {
-        monsterPhotos = new List<Sprite>();
+        currentPage = 0;
+        monsterPhotos = new List<Photo.PhotoInstance>();
 
-        if (monsterTracker < GameManager.gm.monstersInPhotos.Count)
+        if (monsterTracker >= GameManager.gm.monstersInPhotos.Count)
         {
             FinishGallery();
             return;
@@ -41,7 +43,7 @@ public class PhotoGalleryManager : MonoBehaviour
         {
             if(p.nameOfMainMonster == GameManager.gm.monstersInPhotos[monsterTracker])
             {
-                monsterPhotos.Add(GameManager.gm.TurnTextureIntoSprite(p.photoImage));
+                monsterPhotos.Add(p);
             }
         }
        
@@ -61,19 +63,23 @@ public class PhotoGalleryManager : MonoBehaviour
         {
             if ((i + (currentPage * 4)) < monsterPhotos.Count) //making sure we're not going out of bounds. Only four photos shown at a time
             {
-                shownPhotos[i].enabled = true;
+                shownPhotos[i].gameObject.SetActive(true);
                 // i + (currentPage * 4) bc we want to make it easy to show things in fours
-                shownPhotos[i].sprite = monsterPhotos[i + (currentPage * 4)];
-                shownPhotos[i].GetComponent<PhotoBehaviour>().FindMyPhotoNum();
+                shownPhotos[i].sprite = ChangeToSprite(monsterPhotos[i + (currentPage * 4)]);
+                shownPhotos[i].GetComponent<PhotoBehaviour>().myPhoto = monsterPhotos[i + (currentPage * 4)];
 
             }
             else
             {
-                shownPhotos[i].enabled = false;
+                shownPhotos[i].gameObject.SetActive(false);
             }
         }
     }
 
+    Sprite ChangeToSprite(Photo.PhotoInstance p)
+    {
+        return GameManager.gm.TurnTextureIntoSprite(p.photoImage);
+    }
 
 
     //function used if the player clicks the left arrow for the photos
@@ -98,7 +104,7 @@ public class PhotoGalleryManager : MonoBehaviour
 
     public void FinishGallery() // temp method allowing the player to skip over the naming scene and go straight to the rating scene
     {
-        SceneController.sC.LoadScene("CreatureNameScene");
+        SceneController.sC.LoadScene("RatingScene");
     }
 
 }

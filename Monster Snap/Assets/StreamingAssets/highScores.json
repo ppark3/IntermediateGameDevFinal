@@ -1,59 +1,19 @@
 {
     "scores": [
         {
-            "_name": "Sleepyhead",
-            "_num": 8340
-        },
-        {
-            "_name": "im baby",
-            "_num": 3640
-        },
-        {
-            "_name": "Alexander",
-            "_num": 3460
-        },
-        {
-            "_name": "Alexander",
-            "_num": 3460
-        },
-        {
-            "_name": "uhhh",
-            "_num": 3060
-        },
-        {
-            "_name": "My Dude",
-            "_num": 2280
-        },
-        {
-            "_name": "Daryl",
-            "_num": 2200
-        },
-        {
-            "_name": "aaa",
-            "_num": 1160
-        },
-        {
-            "_name": "",
-            "_num": 640
-        },
-        {
-            "_name": "squirt",
-            "_num": 340
-        },
-        {
-            "_name": "oak",
+            "_name": "Not oak",
             "_num": 100
         },
         {
-            "_name": "misty",
+            "_name": "Not misty",
             "_num": 50
         },
         {
-            "_name": "brock",
+            "_name": "Not brock",
             "_num": 30
         },
         {
-            "_name": "ash",
+            "_name": "Not ash",
             "_num": 20
         }
     ]

@@ -23,7 +23,7 @@ public class PhotoPrompter : MonoBehaviour // This script prompts the player to 
     {
         if(pgm.monsterTracker < gm.monstersInPhotos.Count)
         {
-            _text.text = "Choose your best photo of" + gm.monstersInPhotos[pgm.monsterTracker] + "!";
+            _text.text = "Choose your best photo of " + gm.monstersInPhotos[pgm.monsterTracker] + "!";
         }
     }
 }

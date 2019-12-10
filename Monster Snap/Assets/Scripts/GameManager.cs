@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
     public static GameManager gm; // the instance of the Game Manager
 
     public List<Photo.PhotoInstance> storedPhotos; // stores photos after a level ends so it can be scored etc.
-    public List<int> storedPhotoNums; // stores the number of each photo we chose
+    public List<int> storedPhotoNums; // stores the number of each photo we chose NO LONGER IN USE
+    public List<Photo.PhotoInstance> ratedPhotos; // to be rated in rating scene
+
     public int maxFilm; // max amount of photos that can be taken
 
     public HighScore playerScore; // player's name and score is stored in this class
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ratedPhotos = new List<Photo.PhotoInstance>();
         storedPhotos = new List<Photo.PhotoInstance>();
         if(gm == null)
         {

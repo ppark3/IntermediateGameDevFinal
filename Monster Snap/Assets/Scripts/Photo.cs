@@ -92,6 +92,7 @@ public class Photo : MonoBehaviour
             if(mainMonster.isDoingSpecialAction)
             {
                 extrasScore += 70;
+                pose = true;
             }
 
 
