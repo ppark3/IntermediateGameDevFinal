@@ -12,6 +12,12 @@ ModelImporter:
   - first:
       74: 4462420669595626715
     second: Armature|prowl (1)
+  - first:
+      74: 6557035787288739701
+    second: Armature|prowling
+  - first:
+      74: -6164235182818766600
+    second: Armature|POUNCE
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -41,18 +47,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|prowl (1)
-      takeName: Armature|prowl
+      name: Armature|POUNCE
+      takeName: Armature|POUNCE
       internalID: 0
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 18
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -70,18 +76,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|prowl
-      takeName: Armature|prowl
+      name: Armature|prowling
+      takeName: Armature|prowling
       internalID: 0
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 26
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
