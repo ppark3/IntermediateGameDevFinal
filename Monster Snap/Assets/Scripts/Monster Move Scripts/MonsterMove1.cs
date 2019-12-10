@@ -9,10 +9,15 @@ public class MonsterMove1 : MonoBehaviour
     public Transform destination1;
     public float speed;
 
+    public Animator myAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+
+        myAnim = GetComponent<Animator>();
+        myAnim.Play("start eating");
     }
 
     // Update is called once per frame
