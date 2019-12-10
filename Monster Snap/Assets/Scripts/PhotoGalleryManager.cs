@@ -59,6 +59,7 @@ public class PhotoGalleryManager : MonoBehaviour
     // This method allows for photos to be shown
     void ShowPhotos()
     {
+        
         for (int i = 0; i < shownPhotos.Length; i++)
         {
             if ((i + (currentPage * 4)) < monsterPhotos.Count) //making sure we're not going out of bounds. Only four photos shown at a time

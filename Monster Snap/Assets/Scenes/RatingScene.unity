@@ -278,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showingPhoto: {fileID: 37399558}
   criticisms: []
+  currentPhoto: 0
 --- !u!4 &187992071
 Transform:
   m_ObjectHideFlags: 0
@@ -824,12 +825,12 @@ PrefabInstance:
     - target: {fileID: 8331115521548367441, guid: 11ec702fcabba40b4b087186ef13ef21,
         type: 3}
       propertyPath: m_enableAutoSizing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8331115521548367441, guid: 11ec702fcabba40b4b087186ef13ef21,
         type: 3}
       propertyPath: m_fontSize
-      value: 72
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8331115520537730679, guid: 11ec702fcabba40b4b087186ef13ef21,
         type: 3}
