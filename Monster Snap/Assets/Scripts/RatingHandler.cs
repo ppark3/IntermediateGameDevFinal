@@ -73,7 +73,7 @@ public class RatingHandler : MonoBehaviour
         // Is it in a specific pose!
         if (p.pose)
         {
-            sentences.Add(p.nameOfMainMonster + " is doing a cool pose! Bonus points! ");
+            sentences.Add(p.nameOfMainMonster + " is doing a cool pose! Bonus points! "); // plz change this
         }
 
         // Is it centered?
