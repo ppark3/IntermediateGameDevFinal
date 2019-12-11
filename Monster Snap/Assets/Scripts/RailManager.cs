@@ -34,6 +34,8 @@ public class RailManager : MonoBehaviour
     public Transform location24;
     public Transform location25;
 
+    public GameObject dragon;
+
     [Space] // making a space to see the waterfall particle system
     public GameObject waterSplash;
 
@@ -153,6 +155,7 @@ public class RailManager : MonoBehaviour
         if (other.gameObject.GetInstanceID() == location23.gameObject.GetInstanceID())
         {
             GetComponent<RailMovement>().location = location24;
+            dragon.gameObject.SetActive(true);
         }
         if (other.gameObject.GetInstanceID() == location24.gameObject.GetInstanceID())
         {
