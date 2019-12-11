@@ -8,6 +8,7 @@ public class MonsterMove1 : MonoBehaviour
     public bool startMove;
     public Transform destination1;
     public float speed;
+    public float rotateSpeed;
 
     public Animator myAnim;
 
@@ -15,9 +16,9 @@ public class MonsterMove1 : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        rotateSpeed = 100f;
 
         myAnim = GetComponent<Animator>();
-        myAnim.Play("start eating");
     }
 
     // Update is called once per frame
@@ -25,7 +26,13 @@ public class MonsterMove1 : MonoBehaviour
     {
         if (player.GetComponent<RailMovement>().location == player.GetComponent<RailManager>().location2)
         {
-            startMove = true;
+            var q = Quaternion.LookRotation(destination1.position - transform.position);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, rotateSpeed * Time.deltaTime);
+            if (q == transform.rotation && !startMove)
+            {
+                myAnim.Play("fly");
+                startMove = true;
+            }
         }
         if (startMove)
         {
