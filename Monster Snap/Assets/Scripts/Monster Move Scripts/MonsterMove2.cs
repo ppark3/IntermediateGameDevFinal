@@ -6,22 +6,30 @@ public class MonsterMove2 : MonoBehaviour
 {
     public Transform location;
     public float speed;
+    public float rotateSpeed;
+
+    public Animator myAnim;
 
     public Transform location1;
     public Transform location2;
     public Transform location3;
     public Transform location4;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rotateSpeed = 300f;
+
+        myAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, location.position, speed * Time.deltaTime); // moving towards the location!
+        var q = Quaternion.LookRotation(location.position - transform.position);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, rotateSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
