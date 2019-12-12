@@ -11624,7 +11624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomUI: {fileID: 582347681}
   filmLeft: {fileID: 1634202797}
-  zoomKey: 107
+  zoomKey: 106
   zoomFOV: 35
   normalFOV: 80
   zoomSpeed: 2.4
