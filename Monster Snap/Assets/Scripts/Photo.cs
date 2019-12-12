@@ -49,7 +49,10 @@ public class Photo : MonoBehaviour
                     {
                         if (monsters[i]._distance < mainMonster._distance) // checks if their distance is better than the default
                         {
+                            Debug.Log("tf");
+                            Debug.Log(monsters[i].gameObject.tag + " " + monsters[i]._distance);
                             mainMonster = monsters[i]; // sets the best creature as the main one
+                            nameOfMainMonster = monsters[i].tag;
                         }
                     }
                 }
