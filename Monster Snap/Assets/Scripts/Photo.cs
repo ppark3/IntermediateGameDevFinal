@@ -11,6 +11,7 @@ public class Photo : MonoBehaviour
         public List<MonsterScript> monsters; // list of monsters in the photo
         MonsterScript mainMonster; // the main monster we're refrencing for points
         public string nameOfMainMonster; // name ( tag moreso) of the monster we are getting
+        public string poseString;
 
         public int finalScore; // the total score for this photo!
 
@@ -91,6 +92,16 @@ public class Photo : MonoBehaviour
             // Bonus points if the creature is doing a special thing
             if(mainMonster.isDoingSpecialAction)
             {
+                if(nameOfMainMonster == "tigerbee")
+                {
+                    poseString = " is a predator on this island. It has these really cool shade it won't take off.";
+                }
+                if (nameOfMainMonster == "sleepyboi")
+                {
+                    poseString = " is waking up from it's afternoon 5 second nap for the fifth time today!";
+                }
+
+
                 extrasScore += 70;
                 pose = true;
             }

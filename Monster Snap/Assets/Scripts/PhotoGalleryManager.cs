@@ -64,7 +64,7 @@ public class PhotoGalleryManager : MonoBehaviour
         {
             if ((i + (currentPage * 4)) < monsterPhotos.Count) //making sure we're not going out of bounds. Only four photos shown at a time
             {
-                shownPhotos[i].gameObject.SetActive(true);
+                shownPhotos[i].enabled = true;
                 // i + (currentPage * 4) bc we want to make it easy to show things in fours
                 shownPhotos[i].sprite = ChangeToSprite(monsterPhotos[i + (currentPage * 4)]);
                 shownPhotos[i].GetComponent<PhotoBehaviour>().myPhoto = monsterPhotos[i + (currentPage * 4)];
@@ -72,7 +72,7 @@ public class PhotoGalleryManager : MonoBehaviour
             }
             else
             {
-                shownPhotos[i].gameObject.SetActive(false);
+                shownPhotos[i].enabled = false;
             }
         }
     }

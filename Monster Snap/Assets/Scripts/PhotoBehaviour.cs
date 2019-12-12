@@ -33,13 +33,16 @@ public class PhotoBehaviour : MonoBehaviour
     //if you choose a photo...
     public void ChoosePhoto()
     {
-        pse.PlaySFX(0);
+        if (myPhoto != null)
+        {
+            pse.PlaySFX(0);
 
-        GameManager.gm.playerScore._num += myPhoto.finalScore; // adding a score to the player's score
-        GameManager.gm.ratedPhotos.Add(myPhoto); // store this photo number into a list!
+            GameManager.gm.playerScore._num += myPhoto.finalScore; // adding a score to the player's score
+            GameManager.gm.ratedPhotos.Add(myPhoto); // store this photo number into a list!
 
-        pgm.monsterTracker++;
-        pgm.GetNewPhotos();
+            pgm.monsterTracker++;
+            pgm.GetNewPhotos();
+        }
     }
 
 }
