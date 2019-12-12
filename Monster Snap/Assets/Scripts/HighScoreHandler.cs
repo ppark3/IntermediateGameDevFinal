@@ -18,6 +18,7 @@ public class HighScoreHandler : MonoBehaviour
     public HighScore fakeScore;
 
     string filePathData = Path.Combine(Application.streamingAssetsPath, "highScores.json"); // where are we saving this data?
+    float waitTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class HighScoreHandler : MonoBehaviour
 
     private void Update()
     {
+        waitTime -= Time.deltaTime;
        if(dataDoneLoading)
         {
             checkForNewHS(GameManager.gm.playerScore._num);
@@ -39,6 +41,22 @@ public class HighScoreHandler : MonoBehaviour
             ShowScores();
             readyToDisplay = false;
         }
+
+       if(Input.GetKeyDown(KeyCode.J) && waitTime < 0f)
+        {
+            Restart();
+        }
+    }
+
+    void Restart()
+    {
+        GameManager gm = FindObjectOfType<GameManager>();
+        SceneController sc = FindObjectOfType<SceneController>();
+        sc.WaitThenLoadWithTransition("TitleScreen", 0.2f, 0);
+        gm.playerScore = new HighScore();
+        gm.monstersInPhotos = new List<string>();
+        gm.ratedPhotos = new List<Photo.PhotoInstance>();
+        gm.storedPhotos = new List<Photo.PhotoInstance>();
     }
 
     public void checkForNewHS(int newScore) // this function should only run if data done loading
