@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class PlaySoundEffect : MonoBehaviour
+public class PlaySounds : MonoBehaviour
 {
-    public AudioClip[] sfx;
+    public AudioClip[] sounds;
     AudioSource aud;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,20 +17,16 @@ public class PlaySoundEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     public void PlaySFX(int whichOne)
     {
-        if(whichOne < sfx.Length)
+        if(whichOne < sounds.Length && aud.clip != sounds[whichOne])
         {
             aud.Stop();
-            aud.clip = sfx[whichOne];
+            aud.clip = sounds[whichOne];
             aud.Play();
-        }
-        else
-        {
-            Debug.Log("going out of bounds for the sfx!!!");
         }
         
     }

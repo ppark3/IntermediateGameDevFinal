@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819e13f762ac742028b647a904bcda19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx:
+  sounds:
   - {fileID: 8300000, guid: 01c7c8e6ff7134520803fb0ca196ee8f, type: 3}
 --- !u!82 &605846500
 AudioSource:

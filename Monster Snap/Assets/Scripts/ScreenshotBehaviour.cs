@@ -81,7 +81,7 @@ public class ScreenshotBehaviour : MonoBehaviour // this script should be attach
             ShowNewPhotoOnCanvas(newTexture); // show the picture!
 
 
-            PlaySoundEffect pse = transform.parent.GetComponent<PlaySoundEffect>();
+            PlaySounds pse = transform.parent.GetComponent<PlaySounds>();
             pse.PlaySFX(2); // 0 is zoom in, 1 is zoom out, 2 is pic noise
 
             canTakePicture = false; // you can't take another one at the moment

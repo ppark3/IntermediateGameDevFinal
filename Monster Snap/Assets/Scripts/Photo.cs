@@ -47,7 +47,7 @@ public class Photo : MonoBehaviour
                     mainMonster = monsters[0]; // sets the first monster as the main one by default
                     for (int i = 1; i < monsters.Count; i++) // loops through each monster in the photo
                     {
-                        if (monsters[i]._distance < mainMonster._distance && monsters[i]._position < mainMonster._position) // checks if their distance/position is better than the default
+                        if (monsters[i]._distance < mainMonster._distance) // checks if their distance is better than the default
                         {
                             mainMonster = monsters[i]; // sets the best creature as the main one
                         }
@@ -84,19 +84,19 @@ public class Photo : MonoBehaviour
 
 
             // Here we're calculating the score based on the distance between the creature and the camera
-            if (mainMonster._distance > 12)
+            if (mainMonster._distance > 20)
             {
                 distanceScore = 100;
             }
-            else if (mainMonster._distance < 12 && mainMonster._distance > 5)
+            else if (mainMonster._distance < 20 && mainMonster._distance > 16)
             {
                 distanceScore = 200;
             }
-            else if (mainMonster._distance < 5 && mainMonster._distance > 2)
+            else if (mainMonster._distance < 16 && mainMonster._distance > 5)
             {
                 distanceScore = 500;
             }
-            else if (mainMonster._distance < 2)
+            else if (mainMonster._distance < 5)
             {
                 distanceScore = 200;
             }
@@ -117,7 +117,7 @@ public class Photo : MonoBehaviour
                 {
                     poseString = " is a predator on this island. It has these really cool shade it won't take off.";
                 }
-                if (nameOfMainMonster == "sleepyboi")
+                if (nameOfMainMonster == "sleepyboy")
                 {
                     poseString = " is waking up from it's afternoon 5 second nap for the fifth time today!";
                 }

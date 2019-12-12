@@ -21,6 +21,8 @@ public class MonsterMove7 : MonoBehaviour
     {
         if (player.GetComponent<RailMovement>().location == player.GetComponent<RailManager>().location24)
         {
+            PlaySounds ps = GetComponent<PlaySounds>();
+            ps.PlaySFX(0);
             myAnim.Play("Rise");
         }
     }

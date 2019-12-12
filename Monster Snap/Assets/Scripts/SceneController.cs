@@ -122,11 +122,41 @@ public class SceneController : MonoBehaviour // script should be on the game man
     public void LoadScene(int num) // loads scene based on number
     {
         SceneManager.LoadScene(num);
+
+        PlaySounds ps = GetComponent<PlaySounds>();
+        if (GetSceneName() == "TitleScreen")
+        {
+            ps.PlaySFX(0);
+        }
+        if (GetSceneName() == "HighScore Scene")
+        {
+            ps.PlaySFX(2);
+        }
+
+        if (GetSceneName() == "CourseGameplay")
+        {
+            ps.PlaySFX(1);
+        }
     }
 
     public void LoadScene(string sName) // loads scene based on name
     {
         SceneManager.LoadScene(sName);
+
+        PlaySounds ps = GetComponent<PlaySounds>();
+        if (GetSceneName() == "TitleScreen" || sName == "TitleScreen")
+        {
+            ps.PlaySFX(0);
+        }
+        if (GetSceneName() == "HighScore Scene" || sName == "HighScore Scene")
+        {
+            ps.PlaySFX(2);
+        }
+
+        if (GetSceneName() == "CourseGameplay" || sName == "CourseGameplay")
+        {
+            ps.PlaySFX(1);
+        }
     }
 
     public void WaitThenLoad(string sName, float time) // loads scene based on name and waits before switching

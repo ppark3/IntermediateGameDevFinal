@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &191863353072453585
+--- !u!1 &1399737100730055081
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,85 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 147783707858231391}
-  - component: {fileID: 2128369295554646774}
+  - component: {fileID: 1399737100730055087}
+  - component: {fileID: 1399737100730055086}
+  - component: {fileID: 1399737100730055084}
+  - component: {fileID: 4456973961002164708}
+  - component: {fileID: 4081199973560864356}
   m_Layer: 0
-  m_Name: AudioController
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &147783707858231391
+--- !u!4 &1399737100730055087
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191863353072453585}
+  m_GameObject: {fileID: 1399737100730055081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.910551, y: 4.8971066, z: 95.53705}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1399737100730055087}
-  m_RootOrder: 1
+  m_Children:
+  - {fileID: 2599275580815882932}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &2128369295554646774
+--- !u!114 &1399737100730055086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399737100730055081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ea92f1cac794fd5b3db6a8f19d809e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storedPhotos: []
+  storedPhotoNums: 
+  ratedPhotos: []
+  maxFilm: 0
+  playerScore:
+    _name: 
+    _num: 0
+  monstersInPhotos: []
+--- !u!114 &1399737100730055084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399737100730055081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef5c933c00134d5eab512106de76ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScene: 0
+  timer: 0
+  timerIsOn: 0
+  storedName: 
+  storedNum: 0
+--- !u!82 &4456973961002164708
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191863353072453585}
+  m_GameObject: {fileID: 1399737100730055081}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1dfc9326fade84c70b2bbc846f09d4aa, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -127,41 +168,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1399737100730055081
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1399737100730055087}
-  - component: {fileID: 1399737100730055086}
-  - component: {fileID: 1399737100730055084}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1399737100730055087
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399737100730055081}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.910551, y: 4.8971066, z: 95.53705}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2599275580815882932}
-  - {fileID: 147783707858231391}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1399737100730055086
+--- !u!114 &4081199973560864356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,34 +177,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1399737100730055081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ea92f1cac794fd5b3db6a8f19d809e, type: 3}
+  m_Script: {fileID: 11500000, guid: 819e13f762ac742028b647a904bcda19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storedPhotos: []
-  storedPhotoNums: 
-  ratedPhotos: []
-  maxFilm: 0
-  playerScore:
-    _name: 
-    _num: 0
-  monstersInPhotos: []
---- !u!114 &1399737100730055084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1399737100730055081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aef5c933c00134d5eab512106de76ae7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScene: 0
-  timer: 0
-  timerIsOn: 0
-  storedName: 
-  storedNum: 0
+  sounds:
+  - {fileID: 8300000, guid: b6bbc492ffc624f2d9e4fa808cc32068, type: 3}
+  - {fileID: 8300000, guid: 1dfc9326fade84c70b2bbc846f09d4aa, type: 3}
+  - {fileID: 8300000, guid: 057c5d06eb111471cb93fa6e0797ef8b, type: 3}
 --- !u!1 &3421101682940446673
 GameObject:
   m_ObjectHideFlags: 0

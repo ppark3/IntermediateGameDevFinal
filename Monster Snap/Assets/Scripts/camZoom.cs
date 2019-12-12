@@ -42,7 +42,7 @@ public class camZoom : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlaySoundEffect pse = GetComponent<PlaySoundEffect>();
+        PlaySounds pse = GetComponent<PlaySounds>();
 
 
         if (Input.GetKeyDown(zoomKey) && mainCam.fieldOfView > zoomFOV)

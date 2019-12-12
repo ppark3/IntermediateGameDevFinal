@@ -44,6 +44,8 @@ public class MonsterMove2 : MonoBehaviour
         }
         if (other.gameObject.GetInstanceID() == location3.gameObject.GetInstanceID())
         {
+            PlaySounds ps = GetComponent<PlaySounds>();
+            ps.PlaySFX(0);
             location = location4;
         }
         if (other.gameObject.GetInstanceID() == location4.gameObject.GetInstanceID())

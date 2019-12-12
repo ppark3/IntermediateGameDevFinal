@@ -29,7 +29,10 @@ public class MonsterMove5 : MonoBehaviour
         }
         if (startMove)
         {
+            PlaySounds ps = GetComponent<PlaySounds>();
+            ps.PlaySFX(0);
             transform.position = Vector3.MoveTowards(transform.position, destination1.position, speed * Time.deltaTime); // moving towards the location!
+            startMove = false;
         }
     }
 }

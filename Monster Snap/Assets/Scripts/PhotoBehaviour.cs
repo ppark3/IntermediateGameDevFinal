@@ -7,7 +7,7 @@ public class PhotoBehaviour : MonoBehaviour
 {
     PhotoCountDown pcd; // no longer in use
     PhotoGalleryManager pgm;
-    PlaySoundEffect pse;
+    PlaySounds pse;
 
     public Photo.PhotoInstance myPhoto;
 
@@ -16,7 +16,7 @@ public class PhotoBehaviour : MonoBehaviour
 
     private void Start()
     {
-        pse = transform.parent.GetComponent<PlaySoundEffect>();
+        pse = transform.parent.GetComponent<PlaySounds>();
         img = GetComponent<Image>();
         pgm = FindObjectOfType<PhotoGalleryManager>();
         //pcd = FindObjectOfType<PhotoCountDown>();
