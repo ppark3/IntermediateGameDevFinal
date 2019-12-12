@@ -11624,7 +11624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomUI: {fileID: 582347681}
   filmLeft: {fileID: 1634202797}
-  zoomKey: 106
+  zoomKey: 107
   zoomFOV: 35
   normalFOV: 80
   zoomSpeed: 2.4
@@ -21822,7 +21822,7 @@ MonoBehaviour:
   isinCamera: 0
   _distance: 0
   _position: 0
-  isDoingSpecialAction: 0
+  isDoingSpecialAction: 1
 --- !u!1001 &1194580973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33837,7 +33837,7 @@ MonoBehaviour:
   isinCamera: 0
   _distance: 0
   _position: 0
-  isDoingSpecialAction: 0
+  isDoingSpecialAction: 1
 --- !u!1001 &1741006969
 PrefabInstance:
   m_ObjectHideFlags: 0
