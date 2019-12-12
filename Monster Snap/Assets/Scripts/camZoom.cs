@@ -17,7 +17,7 @@ public class camZoom : MonoBehaviour
     public float zoomSpeed;
 
     public static bool isZoomedIn;
-    
+
     void Start()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -25,7 +25,7 @@ public class camZoom : MonoBehaviour
         zoomUI.SetActive(false);
         filmLeft.SetActive(true);
     }
-    
+
     void Update()
     {
         if (isZoomedIn)
@@ -42,13 +42,27 @@ public class camZoom : MonoBehaviour
 
     private void FixedUpdate()
     {
+        PlaySoundEffect pse = GetComponent<PlaySoundEffect>();
+
+
+        if (Input.GetKeyDown(zoomKey) && mainCam.fieldOfView > zoomFOV)
+        {
+            pse.PlaySFX(0);
+        }
+        else if (Input.GetKeyUp(zoomKey) && mainCam.fieldOfView > zoomFOV)
+        {
+            pse.PlaySFX(1);
+        }
+
+
+
         // adjust fov based on zoom speed to create a zoom in/ out effect
         if (Input.GetKey(zoomKey) && mainCam.fieldOfView > zoomFOV)
         {
-            // zoom in
             mainCam.fieldOfView = mainCam.fieldOfView - zoomSpeed;
             isZoomedIn = true;
-        } else if (!Input.GetKey(zoomKey) && mainCam.fieldOfView < normalFOV)
+        }
+        else if (!Input.GetKey(zoomKey) && mainCam.fieldOfView < normalFOV)
         {
             mainCam.fieldOfView = mainCam.fieldOfView + zoomSpeed;
             isZoomedIn = false;
