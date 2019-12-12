@@ -35,19 +35,18 @@ public class FishMovement : MonoBehaviour
             startMove = true;
         }
 
-        if (startMove)
-        {
-            if(transform.position != destinations[currentDest].position)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, destinations[currentDest].position, speed * Time.deltaTime); // moving towards the location!
-            }
-            else
-            {
-                if(destinations.Length > currentDest)
-                {
-                    currentDest++;
-                }
-            }
+        if (startMove && destinations.Length > currentDest)
+
+		{
+			if (transform.position != destinations[currentDest].position)
+			{
+				transform.position = Vector3.MoveTowards(transform.position, destinations[currentDest].position, speed * Time.deltaTime); // moving towards the location!
+			}
+			else
+			{
+
+				currentDest++;
+			}
         }
     }
 }

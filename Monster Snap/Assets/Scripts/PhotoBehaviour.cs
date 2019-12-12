@@ -7,6 +7,7 @@ public class PhotoBehaviour : MonoBehaviour
 {
     PhotoCountDown pcd; // no longer in use
     PhotoGalleryManager pgm;
+    PlaySoundEffect pse;
 
     public Photo.PhotoInstance myPhoto;
 
@@ -15,6 +16,7 @@ public class PhotoBehaviour : MonoBehaviour
 
     private void Start()
     {
+        pse = transform.parent.GetComponent<PlaySoundEffect>();
         img = GetComponent<Image>();
         pgm = FindObjectOfType<PhotoGalleryManager>();
         //pcd = FindObjectOfType<PhotoCountDown>();
@@ -31,7 +33,7 @@ public class PhotoBehaviour : MonoBehaviour
     //if you choose a photo...
     public void ChoosePhoto()
     {
-
+        pse.PlaySFX(0);
 
         GameManager.gm.playerScore._num += myPhoto.finalScore; // adding a score to the player's score
         GameManager.gm.ratedPhotos.Add(myPhoto); // store this photo number into a list!
