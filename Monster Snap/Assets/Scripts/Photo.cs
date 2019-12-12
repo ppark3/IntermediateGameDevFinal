@@ -30,27 +30,48 @@ public class Photo : MonoBehaviour
         //changes the string for MainMonster based on how many monsters are here and they're distance
         public void PickMainMonster()
         {
-            if (monsters.Count == 1) // if there's only one monster, that's the main monster!
+            if (!isThereADragon())
             {
-                mainMonster = monsters[0];
-                nameOfMainMonster = monsters[0].tag;
-            }
-            else if (monsters.Count == 0) // if there's no monsters, there's no main monster!
-            {
-                nameOfMainMonster = "no monster";
-            }
-            else
-            {
-                nameOfMainMonster = monsters[0].tag;
-                mainMonster = monsters[0]; // sets the first monster as the main one by default
-                for (int i = 1; i < monsters.Count; i++) // loops through each monster in the photo
+                if (monsters.Count == 1) // if there's only one monster, that's the main monster!
                 {
-                    if (monsters[i]._distance < mainMonster._distance && monsters[i]._position < mainMonster._position) // checks if their distance/position is better than the default
+                    mainMonster = monsters[0];
+                    nameOfMainMonster = monsters[0].tag;
+                }
+                else if (monsters.Count == 0) // if there's no monsters, there's no main monster!
+                {
+                    nameOfMainMonster = "no monster";
+                }
+                else
+                {
+                    nameOfMainMonster = monsters[0].tag;
+                    mainMonster = monsters[0]; // sets the first monster as the main one by default
+                    for (int i = 1; i < monsters.Count; i++) // loops through each monster in the photo
                     {
-                        mainMonster = monsters[i]; // sets the best creature as the main one
+                        if (monsters[i]._distance < mainMonster._distance && monsters[i]._position < mainMonster._position) // checks if their distance/position is better than the default
+                        {
+                            mainMonster = monsters[i]; // sets the best creature as the main one
+                        }
                     }
                 }
             }
+            else
+            {
+                nameOfMainMonster = "dragon";
+            }
+        }
+
+
+        bool isThereADragon()
+        {
+            for (int i = 1; i < monsters.Count; i++) // loops through each monster in the photo
+            {
+              if(monsters[i].gameObject.tag == "dragon")
+                {
+                    mainMonster = monsters[i];
+                    return true;
+                }
+            }
+            return false;
         }
 
         //this function calculates all of the scores the Photo Instance class has
@@ -63,11 +84,11 @@ public class Photo : MonoBehaviour
 
 
             // Here we're calculating the score based on the distance between the creature and the camera
-            if (mainMonster._distance > 8)
+            if (mainMonster._distance > 12)
             {
                 distanceScore = 100;
             }
-            else if (mainMonster._distance < 8 && mainMonster._distance > 5)
+            else if (mainMonster._distance < 12 && mainMonster._distance > 5)
             {
                 distanceScore = 200;
             }
@@ -100,7 +121,10 @@ public class Photo : MonoBehaviour
                 {
                     poseString = " is waking up from it's afternoon 5 second nap for the fifth time today!";
                 }
-
+                if (nameOfMainMonster == "plant")
+                {
+                    poseString = " is having their hourly ritual where they try to take in the sun via fire. ( It's not very helpful.)";
+                }
 
                 extrasScore += 70;
                 pose = true;

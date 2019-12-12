@@ -7,12 +7,12 @@ public class MonsterMove6 : MonoBehaviour
     public GameObject player;
 
     public Animator myAnim;
-
+    MonsterScript ms;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
-
+        ms = GetComponent<MonsterScript>();
         myAnim = GetComponent<Animator>();
     }
 
@@ -21,6 +21,7 @@ public class MonsterMove6 : MonoBehaviour
     {
         if (player.GetComponent<RailMovement>().location == player.GetComponent<RailManager>().location6)
         {
+            ms.isDoingSpecialAction = true;
             myAnim.Play("awaken");
         }
     }

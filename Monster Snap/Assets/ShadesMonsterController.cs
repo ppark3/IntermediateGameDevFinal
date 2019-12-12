@@ -29,6 +29,8 @@ public class ShadesMonsterController : MonoBehaviour
 
         if (startPounce)
         {
+            MonsterScript ms = GetComponent<MonsterScript>();
+            ms.isDoingSpecialAction = true;
             anim.Play("Armature|POUNCE");
             startPounce = false;
         }
