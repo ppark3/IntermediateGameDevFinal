@@ -29,10 +29,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            if (this != gm)
+            {
+                Destroy(gameObject);
+            }
         }
 
-        maxFilm = 30;
+        maxFilm = 40;
         Cursor.lockState = CursorLockMode.Locked;
     }
 

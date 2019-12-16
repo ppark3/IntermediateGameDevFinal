@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour // script should be on the game man
     public int currentScene;
 
     public static SceneController sC;
-    TransitionController tc;
+    public TransitionController tc;
 
     public float timer; // timer for having a pause between scene changes
     public bool timerIsOn; // bool to turn on timer

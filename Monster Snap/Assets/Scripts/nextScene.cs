@@ -6,12 +6,11 @@ public class nextScene : MonoBehaviour
 {
     public float waitTime;
     public string sceneToLoad;
-    
+
     void Start()
     {
-        
+
     }
-    
     void Update()
     {
         
@@ -21,7 +20,9 @@ public class nextScene : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            SceneController.sC.WaitThenLoad(sceneToLoad, waitTime);
+            SceneController sc = FindObjectOfType<SceneController>();
+
+            sc.WaitThenLoadWithTransition(sceneToLoad, waitTime,0);
         }
     }
 }

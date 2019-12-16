@@ -116,7 +116,7 @@ public class Photo : MonoBehaviour
             {
                 if(nameOfMainMonster == "tigerbee")
                 {
-                    poseString = " is a predator on this island. It has these really cool shade it won't take off.";
+                    poseString = " is a predator on this island. It has these really cool shades it won't take off.";
                 }
                 if (nameOfMainMonster == "sleepyboy")
                 {

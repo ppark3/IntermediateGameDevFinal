@@ -2469,7 +2469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e1f38ed600346ee8fa63393bc3c3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 1.5
+  waitTime: 0.5
   sceneToLoad: CreatureNameScene
 --- !u!1001 &164669693
 PrefabInstance:
@@ -21822,7 +21822,7 @@ MonoBehaviour:
   isinCamera: 0
   _distance: 0
   _position: 0
-  isDoingSpecialAction: 0
+  isDoingSpecialAction: 1
 --- !u!1001 &1194580973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25105,6 +25105,21 @@ PrefabInstance:
     - target: {fileID: 2599275580815882932, guid: 626fc1a8ce2594130882cae3363d708a,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3556981854525337978, guid: 626fc1a8ce2594130882cae3363d708a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395170107176636519, guid: 626fc1a8ce2594130882cae3363d708a,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728438271051791243, guid: 626fc1a8ce2594130882cae3363d708a,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -31770,6 +31785,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird3
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 22b5222add2374b668e12a485aa0efca,
+        type: 3}
+      propertyPath: m_TagString
+      value: bird
+      objectReference: {fileID: 0}
     - target: {fileID: -8565680273232128185, guid: 22b5222add2374b668e12a485aa0efca,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -33817,7 +33837,7 @@ MonoBehaviour:
   isinCamera: 0
   _distance: 0
   _position: 0
-  isDoingSpecialAction: 0
+  isDoingSpecialAction: 1
 --- !u!1001 &1741006969
 PrefabInstance:
   m_ObjectHideFlags: 0
